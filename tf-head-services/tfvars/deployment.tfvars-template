@@ -1,0 +1,78 @@
+acme_contact                  = ""
+application_credential_id     = ""
+application_credential_secret = ""
+gen_user_count                = ""
+git_config = {
+  # Example of internal git
+  #   type                 = "INTERNAL"
+  #   server               = "head_host"
+  #   sshPort              = 30022
+  #   restServerUrl        = "http://git-internal.kypo:5000/"
+  #   user                 = "git"
+  #   privateKey           = ""
+  #   accessToken          = "no-gitlab-token"
+  #   ansibleNetworkingUrl = "git@head_host:30022/repos/backend-python/ansible-networking-stage/kypo-ansible-stage-one.git"
+  #   ansibleNetworkingRev = "v1.0.4"
+  # Example of GitLab
+  #   type                 = "GITLAB"
+  #   server               = "example.com"
+  #   sshPort              = 22
+  #   restServerUrl        = "https://example.com/"
+  #   user                 = "git"
+  #   privateKey           = "`base64 -w0 ssh_private.key`"
+  #   accessToken          = "alpha-num-string"
+  #   ansibleNetworkingUrl = "git@example.com:kypo-ansible-stage-one.git"
+  #   ansibleNetworkingRev = "master"
+}
+guacamole_admin_password      = ""
+guacamole_user_password       = ""
+head_host                     = ""
+head_ip                       = ""
+kubernetes_host               = ""
+kubernetes_client_certificate = ""
+kubernetes_client_key         = ""
+os_auth_url                   = ""
+oidc_providers = [
+  # Example of Azure OIDC issuer
+  #  {
+  #    url              = "https://login.microsoftonline.com/<tenant ID>/v2.0/"
+  #    logoutUrl        = "https://login.microsoftonline.com/<tenant ID>/oauth2/v2.0/logout"
+  #    client_id        = "Application (client) ID"
+  #    label            = "Login with Azure issuer"
+  #    issuerIdentifier = "https://sts.windows.net/<tenant ID>/"
+  #    userInfoUrl      = "https://graph.microsoft.com/oidc/userinfo"
+  #  }
+  # Example of internal local OIDC issuer
+  #  {
+  #    url              = "https://head_host:443/csirtmu-dummy-issuer-server/"
+  #    logoutUrl        = "https://head_host:443/csirtmu-dummy-issuer-server/endsession"
+  #    clientId         = "`head -n 300 /dev/urandom | tr -dc 'A-Za-z' | fold -w 36 | head -n 1`"
+  #    label            = "Login with local issuer"
+  #    issuerIdentifier = ""
+  #    userInfoUrl      = ""
+  #  }
+]
+proxy_host                   = ""
+proxy_key                    = ""
+users = {
+  # Example of a user from external OIDC issuer
+  #  "admin@example.com" = {
+  #    iss        = "https://example.com:443/issuer"
+  #    password   = ""
+  #    email      = "admin@example.com"
+  #    fullName   = "Demo Admin"
+  #    givenName  = "Demo"
+  #    familyName = "Admin"
+  #    admin      = true
+  #  }
+  # Example of a user from internal local OIDC issuer
+  #  "kypo-admin" = {
+  #    iss        = "https://head_host:443/csirtmu-dummy-issuer-server/"
+  #    password   = "password"
+  #    email      = "kypo-admin@example.com"
+  #    fullName   = "Demo Admin"
+  #    givenName  = "Demo"
+  #    familyName = "Admin"
+  #    admin      = true
+  #  }
+}

@@ -1,0 +1,41 @@
+# Deployment of OpenStack base resources
+
+1. Execute application credentials script in current shell:\
+`source /path/to/app-cred-<name>-openrc.sh`
+
+2. Enter tf-openstack-base directory:\
+`cd tf-openstack-base`
+
+3. Get the name of the OpenStack external network that will allow you to allocate floating IP addresses from the public IP address range. List all external networks:\
+`openstack network list --external --column Name`
+
+4. Create **deployment.tvars** from template **deployment.tvars-template**:\
+`cp tfvars/deployment.tvars-template tfvars/deployment.tvars`\
+ and setup **external_network_name** variable:\
+ `external_network_name = "openstack_external_network"`
+
+5. Initialize Terraform:\
+`terraform init`
+
+## Deploy all OpenStack resources (with flavors and images)
+For private OpenStack cloud deployments with admin application credentials, Terraform can deploy all required OpenStack resources.
+
+5. Deploy all OpenStack resources:
+    1. `terraform apply -var-file tfvars/deployment.tvars -var-file tfvars/vars-all.tfvars`
+
+## Deploy base OpenStack resources (without flavors and images)
+For public OpenStack cloud deployments or private ones without admin application credentials, it is necessary to use flavors and images provided by the cloud provider.
+
+5. Deploy base OpenStack resources:
+    1. Get the image names used for the KYPO base servers. List all images.\
+      `openstack image list --column Name`
+    2. Get the flavor names used for the KYPO base servers. List all flavors.\
+      `openstack flavor list --column Name`
+    3. Setup the following variables in vars-base.tfvars with values obtained in steps a. and b. All images need to be based on    **Ubuntu Focal**. kypo_kubernetes_cluster_flavor_name needs at least **4 VCPUs, 16384 MB RAM and 80 GB Disk**,  kypo_proxy_flavor_name needs at least **1 CPU, 2048 MB RAM and 10 GB Disk**.
+    ```
+    kypo_kubernetes_cluster_flavor_name = ""
+    kypo_kubernetes_cluster_image_name  = ""
+    kypo_proxy_flavor_name              = ""
+    kypo_proxy_image_name               = ""
+    ```
+    4. `terraform apply -var-file tfvars/deployment.tvars -var-file tfvars/vars-base.tfvars`

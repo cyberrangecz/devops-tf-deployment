@@ -1,0 +1,27 @@
+kypo-elasticsearch:
+  pvc:
+    storageClassName: local-path
+
+kypo-git-internal:
+  pvc:
+    storageClassName: local-path
+
+kypo-guacamole:
+  guacd:
+    pvc:
+      storageClassName: local-path
+
+kypo-oidc:
+  oidcIssuerApp:
+    pvc:
+      storageClassName: local-path
+
+postgres:
+  pvc:
+    storageClassName: local-path
+
+sandbox:
+  stackNamePrefix: default
+  dnsNameServers:
+    - 1.1.1.1
+    - 1.0.0.1

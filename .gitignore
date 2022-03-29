@@ -1,0 +1,5 @@
+*.tfstate*
+.terraform
+.terraform.lock.hcl
+*deployment.tfvars
+tf-head-services/config
