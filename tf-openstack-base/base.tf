@@ -17,11 +17,16 @@ module "openstack_base" {
   dns_nameservers       = var.dns_nameservers
 }
 
+data "openstack_images_image_v2" "ubuntu" {
+  name        = var.deploy_images ? module.images[0].focal_name : var.kypo_proxy_image_name
+  most_recent = true
+}
+
 module "proxy_jump" {
   source                = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_medium_name : var.kypo_proxy_flavor_name
-  image_name            = var.deploy_images ? module.images[0].focal_name : var.kypo_proxy_image_name
+  image_id              = data.openstack_images_image_v2.ubuntu.id
   key_pair              = module.openstack_base.keypair_name
   network_id            = module.openstack_base.network_id
   security_group        = module.openstack_base.sg_proxy_name
@@ -33,7 +38,7 @@ module "kubernetes_cluster" {
   source                = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_large_name : var.kypo_kubernetes_cluster_flavor_name
-  image_name            = var.deploy_images ? module.images[0].focal_name : var.kypo_kubernetes_cluster_image_name
+  image_id              = data.openstack_images_image_v2.ubuntu.id
   key_pair              = module.openstack_base.keypair_name
   network_id            = module.openstack_base.network_id
   private_key           = module.openstack_base.private_key
