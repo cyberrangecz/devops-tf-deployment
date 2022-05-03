@@ -20,6 +20,7 @@ module "openstack_base" {
 data "openstack_images_image_v2" "ubuntu" {
   name        = var.deploy_images ? module.images[0].focal_name : var.kypo_proxy_image_name
   most_recent = true
+  depends_on  = [module.images]
 }
 
 module "proxy_jump" {
