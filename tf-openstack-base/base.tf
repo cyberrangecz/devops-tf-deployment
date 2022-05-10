@@ -1,6 +1,6 @@
 module "flavors" {
   count                = var.deploy_flavors ? 1 : 0
-  source               = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git"
+  source               = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git?ref=v1.0.0"
   standard_small_disk  = var.standard_small_disk
   standard_medium_disk = var.standard_medium_disk
   standard_large_disk  = var.standard_large_disk
@@ -8,11 +8,11 @@ module "flavors" {
 
 module "images" {
   count  = var.deploy_images ? 1 : 0
-  source = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git"
+  source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.0.0"
 }
 
 module "openstack_base" {
-  source                = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git"
+  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git?ref=v1.0.0"
   external_network_name = var.external_network_name
   dns_nameservers       = var.dns_nameservers
 }
@@ -24,7 +24,7 @@ data "openstack_images_image_v2" "ubuntu" {
 }
 
 module "proxy_jump" {
-  source                = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git"
+  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git?ref=v1.0.0"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_medium_name : var.kypo_proxy_flavor_name
   image_id              = data.openstack_images_image_v2.ubuntu.id
@@ -36,7 +36,7 @@ module "proxy_jump" {
 
 module "kubernetes_cluster" {
   count                 = var.deploy_kubernetes_cluster ? 1 : 0
-  source                = "git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git"
+  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git?ref=v1.0.2"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_large_name : var.kypo_kubernetes_cluster_flavor_name
   image_id              = data.openstack_images_image_v2.ubuntu.id
