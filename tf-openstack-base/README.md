@@ -8,21 +8,25 @@
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 1.47.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_flavors"></a> [flavors](#module\_flavors) | git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git | n/a |
-| <a name="module_images"></a> [images](#module\_images) | git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git | n/a |
-| <a name="module_kubernetes_cluster"></a> [kubernetes\_cluster](#module\_kubernetes\_cluster) | git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git | n/a |
-| <a name="module_openstack_base"></a> [openstack\_base](#module\_openstack\_base) | git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git | n/a |
-| <a name="module_proxy_jump"></a> [proxy\_jump](#module\_proxy\_jump) | git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git | n/a |
+| <a name="module_flavors"></a> [flavors](#module\_flavors) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git | v1.0.0 |
+| <a name="module_images"></a> [images](#module\_images) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git | v1.0.0 |
+| <a name="module_kubernetes_cluster"></a> [kubernetes\_cluster](#module\_kubernetes\_cluster) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git | v1.0.2 |
+| <a name="module_openstack_base"></a> [openstack\_base](#module\_openstack\_base) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git | v1.0.0 |
+| <a name="module_proxy_jump"></a> [proxy\_jump](#module\_proxy\_jump) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git | v1.0.0 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [openstack_images_image_v2.ubuntu](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/data-sources/images_image_v2) | data source |
 
 ## Inputs
 

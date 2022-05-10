@@ -11,7 +11,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kypo_crp"></a> [kypo\_crp](#module\_kypo\_crp) | git@gitlab.ics.muni.cz:muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-crp-helm.git | n/a |
+| <a name="module_kypo_crp"></a> [kypo\_crp](#module\_kypo\_crp) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-crp-helm.git | v1.0.1 |
 
 ## Resources
 
