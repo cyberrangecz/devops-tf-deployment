@@ -75,6 +75,12 @@ variable "kubernetes_client_key" {
   description = "Base64 encoded client key for authentication to Kubernetes API"
 }
 
+variable "kypo_crp_head_version" {
+  type        = string
+  description = "Version of kypo-crp-head helm package"
+  default     = "0.0.2"
+}
+
 variable "os_auth_url" {
   type        = string
   description = "OpenStack authentication URL"

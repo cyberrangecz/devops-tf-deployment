@@ -10,6 +10,7 @@ module "kypo_crp" {
   head_host                     = var.head_host
   head_ip                       = var.head_ip
   helm_repository               = var.helm_repository
+  kypo_crp_head_version         = var.kypo_crp_head_version
   os_auth_url                   = var.os_auth_url
   oidc_providers                = var.oidc_providers
   proxy_host                    = var.proxy_host
