@@ -1,6 +1,6 @@
 # Deployment of OpenStack base resources
 
-1. Execute application credentials script in current shell:\
+1. Execute OpenStack application credentials script in current shell:\
 `source /path/to/app-cred-<name>-openrc.sh`
 
 2. Enter tf-openstack-base directory:\
@@ -9,8 +9,8 @@
 3. Get the name of the OpenStack external network that will allow you to allocate floating IP addresses from the public IP address range. List all external networks:\
 `openstack network list --external --column Name`
 
-4. Create **deployment.tvars** from template **deployment.tvars-template**:\
-`cp tfvars/deployment.tvars-template tfvars/deployment.tvars`\
+4. Create **deployment.tfvars** from template **deployment.tfvars-template**:\
+`cp tfvars/deployment.tfvars-template tfvars/deployment.tfvars`\
  and setup **external_network_name** variable:\
  `external_network_name = "openstack_external_network"`
 
@@ -21,7 +21,7 @@
 For private OpenStack cloud deployments with admin application credentials, Terraform can deploy all required OpenStack resources.
 
 5. Deploy all OpenStack resources:
-    1. `terraform apply -var-file tfvars/deployment.tvars -var-file tfvars/vars-all.tfvars`
+    1. `terraform apply -var-file tfvars/deployment.tfvars -var-file tfvars/vars-all.tfvars`
 
 ## Deploy base OpenStack resources (without flavors and images)
 For public OpenStack cloud deployments or private ones without admin application credentials, it is necessary to use flavors and images provided by the cloud provider.
@@ -38,4 +38,4 @@ For public OpenStack cloud deployments or private ones without admin application
     kypo_proxy_flavor_name              = ""
     kypo_proxy_image_name               = ""
     ```
-    4. `terraform apply -var-file tfvars/deployment.tvars -var-file tfvars/vars-base.tfvars`
+    4. `terraform apply -var-file tfvars/deployment.tfvars -var-file tfvars/vars-base.tfvars`
