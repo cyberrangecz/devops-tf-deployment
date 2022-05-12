@@ -17,8 +17,8 @@ This repository is used  to deploy KYPO CRP to the OpenStack cloud with Terrafor
 ## Deployment
 
 The deployment consists of two steps. First step is deployment of basic OpenStack resources (flavors, images, networking, instances) with [tf-openstack-base](tf-openstack-base).
-The second step is deploying the KYPO-CRP helm application to this virtual infrastructure with [tf-head-services](tf-head-services).
+The second step is deploying the KYPO-CRP Helm application to this virtual infrastructure with [tf-head-services](tf-head-services).
 
 Follow these guides to deploy KYPO CRP:
-1. [Deployment of OpenStak base resources](BASE.md)
-2. [Deployment of KYPO-CRP helm application](HELM.md)
+1. [Deployment of OpenStack base resources](BASE.md)
+2. [Deployment of KYPO-CRP Helm application](HELM.md)
