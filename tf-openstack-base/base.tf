@@ -1,9 +1,14 @@
 module "flavors" {
   count                = var.deploy_flavors ? 1 : 0
-  source               = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git?ref=v1.0.0"
+  source               = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git?ref=v1.0.1"
   standard_small_disk  = var.standard_small_disk
   standard_medium_disk = var.standard_medium_disk
   standard_large_disk  = var.standard_large_disk
+  csirtmu_tiny_disk    = var.csirtmu_tiny_disk
+  standard_small_ram   = var.standard_small_ram
+  standard_medium_ram  = var.standard_medium_ram
+  standard_large_ram   = var.standard_large_ram
+  csirtmu_tiny_ram     = var.csirtmu_tiny_ram
 }
 
 module "images" {
