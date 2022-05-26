@@ -24,7 +24,7 @@ Kubernetes cluster, which is **not deployed** by [tf-openstack-base](tf-openstac
      * sshPort - SSH port of GitLab (usually 22)
      * restServerUrl - GitLab REST API URL
      * user - username of the Gitlab user (usually git)
-     * privateKey - passwordless SSH key of the Gitlab user
+     * privateKey - passwordless base64 encoded SSH key of the Gitlab user (for internal Git leave empty)
      * accessToken - access token of the Gitlab user to be used for communication with REST API URL
      * ansibleNetworkingUrl - ansible stage one repo URL (https://gitlab.ics.muni.cz/muni-kypo-crp/backend-python/ansible-networking-stage/kypo-ansible-stage-one)
      * ansibleNetworkingRev - revision of ansible stage one repo
