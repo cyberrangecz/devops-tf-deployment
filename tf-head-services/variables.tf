@@ -13,6 +13,12 @@ variable "application_credential_secret" {
   description = "Application credentials secret for accessing OpenStack project"
 }
 
+variable "deploy_head_timeout" {
+  type        = number
+  description = "Timeout for deploying kypo-crp-head helm package in seconds"
+  default     = 3600
+}
+
 variable "gen_user_count" {
   type        = number
   description = "Number of local users to generate"

@@ -1,8 +1,9 @@
 module "kypo_crp" {
-  source                        = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-crp-helm.git?ref=v1.0.2"
+  source                        = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-crp-helm.git?ref=v1.0.3"
   acme_contact                  = var.acme_contact
   application_credential_id     = var.application_credential_id
   application_credential_secret = var.application_credential_secret
+  deploy_head_timeout           = var.deploy_head_timeout
   gen_user_count                = var.gen_user_count
   git_config                    = var.git_config
   guacamole_admin_password      = var.guacamole_admin_password
