@@ -12,7 +12,6 @@ module "flavors" {
 }
 
 module "images" {
-  count  = var.deploy_images ? 1 : 0
   source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.1.0"
 }
 
@@ -23,7 +22,7 @@ module "openstack_base" {
 }
 
 data "openstack_images_image_v2" "ubuntu" {
-  name        = var.deploy_images ? module.images[0].focal_name : var.kypo_proxy_image_name
+  name        = module.images.focal_name
   most_recent = true
   depends_on  = [module.images]
 }

@@ -16,12 +16,6 @@ variable "deploy_flavors" {
   default     = false
 }
 
-variable "deploy_images" {
-  type        = bool
-  description = "If images should be uploaded to OpenStack image store"
-  default     = false
-}
-
 variable "deploy_kubernetes_cluster" {
   type        = bool
   description = "If KYPO kubernetes cluster for head services should be deployed"
@@ -44,21 +38,9 @@ variable "kypo_kubernetes_cluster_flavor_name" {
   description = "OpenStack flavor used by KYPO kubernetes cluster instance"
 }
 
-variable "kypo_kubernetes_cluster_image_name" {
-  type        = string
-  description = "OpenStack image used by KYPO kubernetes cluster instance"
-  default     = "ubuntu-focal-x86_64"
-}
-
 variable "kypo_proxy_flavor_name" {
   type        = string
   description = "OpenStack flavor used by KYPO proxy jump instance"
-}
-
-variable "kypo_proxy_image_name" {
-  type        = string
-  description = "OpenStack image used by KYPO proxy jump instance"
-  default     = "ubuntu-focal-x86_64"
 }
 
 variable "standard_small_disk" {
