@@ -9,7 +9,6 @@ This repository is used  to deploy KYPO CRP to the OpenStack cloud with Terrafor
     * Nova
     * Neutron with user-defined networking and floating IP addresses
     * Keystone
-    * Heat
 * two floating IP addresses and an OpenStack router with access to the internet
 * OpenStack application credentials with **unrestricted** parameter
 * Terraform v1.1.8
