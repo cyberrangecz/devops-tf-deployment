@@ -13,7 +13,7 @@ module "flavors" {
 
 module "images" {
   count  = var.deploy_images ? 1 : 0
-  source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.0.0"
+  source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.1.0"
 }
 
 module "openstack_base" {
