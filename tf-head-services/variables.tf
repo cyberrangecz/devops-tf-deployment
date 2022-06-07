@@ -84,7 +84,7 @@ variable "kubernetes_client_key" {
 variable "kypo_crp_head_version" {
   type        = string
   description = "Version of kypo-crp-head helm package"
-  default     = "0.0.5-rc.1"
+  default     = "0.0.6-rc.1"
 }
 
 variable "os_auth_url" {

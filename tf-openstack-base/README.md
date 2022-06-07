@@ -18,7 +18,7 @@
 |------|--------|---------|
 | <a name="module_flavors"></a> [flavors](#module\_flavors) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-flavors.git | v1.0.1 |
 | <a name="module_images"></a> [images](#module\_images) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git | v1.1.0 |
-| <a name="module_kubernetes_cluster"></a> [kubernetes\_cluster](#module\_kubernetes\_cluster) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git | v1.0.2 |
+| <a name="module_kubernetes_cluster"></a> [kubernetes\_cluster](#module\_kubernetes\_cluster) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git | v1.0.3 |
 | <a name="module_openstack_base"></a> [openstack\_base](#module\_openstack\_base) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git | v1.0.0 |
 | <a name="module_proxy_jump"></a> [proxy\_jump](#module\_proxy\_jump) | git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git | v1.0.0 |
 
