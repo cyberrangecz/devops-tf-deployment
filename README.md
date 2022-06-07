@@ -10,8 +10,16 @@ This repository is used  to deploy KYPO CRP to the OpenStack cloud with Terrafor
     * Neutron with user-defined networking and floating IP addresses
     * Keystone
 * two floating IP addresses and an OpenStack router with access to the internet
-* OpenStack application credentials with **unrestricted** parameter
-* Terraform v1.1.8
+
+## Preparing the Deployment Environment
+* [Obtain Application Credentials](https://docs.openstack.org/keystone/yoga/user/application_credentials.html)
+* Install Terraform (at least v1.1.8)
+
+  ```snap install terraform --classic```
+
+* Clone deployment repository
+
+  ```git clone https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment.git```
 
 ## Deployment
 
