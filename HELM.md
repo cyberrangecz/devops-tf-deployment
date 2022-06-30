@@ -18,7 +18,7 @@ Kubernetes cluster, which is **not deployed** by [tf-openstack-base](tf-openstac
  * `application_credential_id` - application credentials ID, which was generated for KYPO
  * `application_credential_secret` - application credential secret, which was generated for KYPO
  * `gen_user_count` - number of user accounts that should be generated in local oidc issuer
- * `git_config` - for internal Git uncomment "Example of internal git" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base). For custom GitLab:
+ * `git_config` - for internal Git uncomment "Example of internal git" section in the template. For custom GitLab:
      * type - "GITLAB"
      * server - GitLab server FQDN or IP address
      * sshPort - SSH port of GitLab (usually 22)
