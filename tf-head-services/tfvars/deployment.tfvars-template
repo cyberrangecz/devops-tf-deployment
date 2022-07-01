@@ -5,7 +5,7 @@ gen_user_count                = ""
 git_config = {
   # Example of internal git
   #   type                 = "INTERNAL"
-  #   server               = git-internal.kypo
+  #   server               = "git-internal.kypo"
   #   sshPort              = 22
   #   restServerUrl        = "http://git-internal.kypo:5000/"
   #   user                 = "git"
