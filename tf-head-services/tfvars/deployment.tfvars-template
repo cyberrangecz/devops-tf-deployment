@@ -42,6 +42,7 @@ oidc_providers = [
   #    label            = "Login with Azure issuer"
   #    issuerIdentifier = "https://sts.windows.net/<tenant ID>/"
   #    userInfoUrl      = "https://graph.microsoft.com/oidc/userinfo"
+  #    responseType     = ""
   #  }
   # Example of internal local OIDC issuer
   #  {
@@ -51,6 +52,7 @@ oidc_providers = [
   #    label            = "Login with local issuer"
   #    issuerIdentifier = ""
   #    userInfoUrl      = ""
+  #    responseType     = ""
   #  }
 ]
 proxy_host                   = ""
