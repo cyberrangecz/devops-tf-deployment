@@ -87,6 +87,12 @@ variable "kypo_crp_head_version" {
   default     = "1.0.0"
 }
 
+variable "man_flavor" {
+  type        = string
+  description = "Flavor name used for man nodes"
+  default     = "csirtmu.tiny1x2"
+}
+
 variable "os_auth_url" {
   type        = string
   description = "OpenStack authentication URL"
