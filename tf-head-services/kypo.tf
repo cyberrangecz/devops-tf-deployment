@@ -17,5 +17,6 @@ module "kypo_crp" {
   oidc_providers                = var.oidc_providers
   proxy_host                    = var.proxy_host
   proxy_key                     = var.proxy_key
+  sandbox_ansible_timeout       = var.sandbox_ansible_timeout
   users                         = var.users
 }
