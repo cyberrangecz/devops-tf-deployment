@@ -18,5 +18,7 @@ module "kypo_crp" {
   proxy_host                    = var.proxy_host
   proxy_key                     = var.proxy_key
   sandbox_ansible_timeout       = var.sandbox_ansible_timeout
+  tls_private_key               = var.tls_private_key
+  tls_public_key                = var.tls_public_key
   users                         = var.users
 }
