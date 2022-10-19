@@ -87,6 +87,12 @@ variable "kypo_crp_head_version" {
   default     = "1.0.0"
 }
 
+variable "kypo_postgres_version" {
+  type        = string
+  description = "Version of kypo-postgres helm package"
+  default     = "1.0.0"
+}
+
 variable "man_flavor" {
   type        = string
   description = "Flavor name used for man nodes"
