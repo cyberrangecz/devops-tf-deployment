@@ -33,6 +33,12 @@ variable "external_network_name" {
   description = "External network name used for floating IP allocation"
 }
 
+variable "k3s_version" {
+  type        = string
+  description = "Version of k3s distribution"
+  default     = "v1.25.3+k3s1"
+}
+
 variable "kypo_kubernetes_cluster_flavor_name" {
   type        = string
   description = "OpenStack flavor used by KYPO kubernetes cluster instance"
