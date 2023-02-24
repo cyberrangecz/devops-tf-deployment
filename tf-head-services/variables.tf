@@ -84,13 +84,13 @@ variable "kubernetes_client_key" {
 variable "kypo_crp_head_version" {
   type        = string
   description = "Version of kypo-crp-head helm package"
-  default     = "1.0.0"
+  default     = "2.0.0"
 }
 
 variable "kypo_postgres_version" {
   type        = string
   description = "Version of kypo-postgres helm package"
-  default     = "1.0.0"
+  default     = "2.1.0"
 }
 
 variable "man_flavor" {
