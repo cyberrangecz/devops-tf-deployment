@@ -99,6 +99,12 @@ variable "man_flavor" {
   default     = "csirtmu.tiny1x2"
 }
 
+variable "man_image" {
+  type        = string
+  description = "OpenStack image used for man nodes"
+  default     = "debian-10-man"
+}
+
 variable "os_auth_url" {
   type        = string
   description = "OpenStack authentication URL"

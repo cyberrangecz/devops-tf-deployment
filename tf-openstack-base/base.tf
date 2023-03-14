@@ -12,7 +12,7 @@ module "flavors" {
 }
 
 module "images" {
-  source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.1.1"
+  source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.1.2"
 }
 
 module "openstack_base" {
