@@ -33,6 +33,13 @@ variable "external_network_name" {
   description = "External network name used for floating IP allocation"
 }
 
+variable "import_kali" {
+  type        = bool
+  description = "Import Kali image"
+  default     = true
+}
+
+
 variable "k3s_version" {
   type        = string
   description = "Version of k3s distribution"
