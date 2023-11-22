@@ -17,7 +17,7 @@ module "images" {
 }
 
 module "openstack_base" {
-  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git?ref=v1.0.0"
+  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-openstack-base.git?ref=v1.0.1"
   external_network_name = var.external_network_name
   dns_nameservers       = var.dns_nameservers
 }
