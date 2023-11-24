@@ -19,6 +19,12 @@ variable "deploy_head_timeout" {
   default     = 3600
 }
 
+variable "enable_monitoring" {
+  type        = bool
+  description = "If Prometheus monitoring should be enabled"
+  default     = false
+}
+
 variable "gen_user_count" {
   type        = number
   description = "Number of local users to generate"
@@ -110,6 +116,12 @@ variable "os_auth_url" {
   description = "OpenStack authentication URL"
 }
 
+variable "os_region" {
+  type        = string
+  description = "OpenStack region"
+  default     = ""
+}
+
 variable "oidc_providers" {
   type = list(object({
     url              = string
@@ -122,6 +134,18 @@ variable "oidc_providers" {
     }
   ))
   description = "List of OIDC providers. Set issuerIdentifier and userInfoUrl to empty string if not used."
+  default     = []
+}
+
+variable "openid_configuration_insecure" {
+  type    = bool
+  default = false
+}
+
+variable "prometheus_jobs" {
+  type        = list(any)
+  description = "List of custom prometheus jobs"
+  default     = []
 }
 
 variable "proxy_host" {

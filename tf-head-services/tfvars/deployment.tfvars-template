@@ -1,6 +1,7 @@
 acme_contact                  = ""
 application_credential_id     = ""
 application_credential_secret = ""
+enable_monitoring             = false
 gen_user_count                = ""
 git_config = {
   # Example of internal git
@@ -12,7 +13,7 @@ git_config = {
   #   privateKey           = ""
   #   accessToken          = "no-gitlab-token"
   #   ansibleNetworkingUrl = "git@git-internal.kypo:/repos/backend-python/ansible-networking-stage/kypo-ansible-stage-one.git"
-  #   ansibleNetworkingRev = "v1.0.11"
+  #   ansibleNetworkingRev = "v1.0.14"
   # Example of GitLab
   #   type                 = "GITLAB"
   #   server               = "example.com"
@@ -31,7 +32,7 @@ head_ip                       = ""
 kubernetes_host               = ""
 kubernetes_client_certificate = ""
 kubernetes_client_key         = ""
-kypo_crp_head_version         = "3.1.0"
+kypo_crp_head_version         = "3.1.7"
 kypo_postgres_version         = "2.1.0"
 man_image                     = "debian-11-man"
 os_auth_url                   = ""
@@ -46,19 +47,10 @@ oidc_providers = [
   #    userInfoUrl      = "https://graph.microsoft.com/oidc/userinfo"
   #    responseType     = ""
   #  }
-  # Example of internal local OIDC issuer
-  #  {
-  #    url              = "https://head_host:443/csirtmu-dummy-issuer-server/"
-  #    logoutUrl        = "https://head_host:443/csirtmu-dummy-issuer-server/endsession"
-  #    clientId         = "`head -n 300 /dev/urandom | tr -dc 'A-Za-z' | fold -w 36 | head -n 1`"
-  #    label            = "Login with local issuer"
-  #    issuerIdentifier = ""
-  #    userInfoUrl      = ""
-  #    responseType     = ""
-  #  }
 ]
-proxy_host                   = ""
-proxy_key                    = ""
+openid_configuration_insecure = true
+proxy_host                    = ""
+proxy_key                     = ""
 users = {
   # Example of a user from external OIDC issuer
   #  "admin@example.com" = {
@@ -70,9 +62,9 @@ users = {
   #    familyName = "Admin"
   #    admin      = true
   #  }
-  # Example of a user from internal local OIDC issuer
+  # Example of a user from local Keycloack issuer
   #  "kypo-admin" = {
-  #    iss        = "https://head_host:443/csirtmu-dummy-issuer-server/"
+  #    iss        = "https://head_host/keycloak/realms/KYPO"
   #    password   = "password"
   #    email      = "kypo-admin@example.com"
   #    fullName   = "Demo Admin"
