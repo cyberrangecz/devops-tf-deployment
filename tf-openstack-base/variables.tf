@@ -56,6 +56,12 @@ variable "kypo_proxy_flavor_name" {
   description = "OpenStack flavor used by KYPO proxy jump instance"
 }
 
+variable "preinstalled_man" {
+  type        = bool
+  description = "Import preinstalled man image"
+  default     = true
+}
+
 variable "standard_small_disk" {
   type        = string
   description = "Disk size of standard small flavor in GB"

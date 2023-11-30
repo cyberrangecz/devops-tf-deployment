@@ -34,7 +34,7 @@ kubernetes_client_certificate = ""
 kubernetes_client_key         = ""
 kypo_crp_head_version         = "3.1.7"
 kypo_postgres_version         = "2.1.0"
-man_image                     = "debian-11-man"
+man_image                     = "debian-11-man-preinstalled"
 os_auth_url                   = ""
 oidc_providers = [
   # Example of Azure OIDC issuer

@@ -12,8 +12,9 @@ module "flavors" {
 }
 
 module "images" {
-  source = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.2.0"
-  kali   = var.import_kali
+  source           = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-images.git?ref=v1.3.0"
+  kali             = var.import_kali
+  preinstalled_man = var.preinstalled_man
 }
 
 module "openstack_base" {
