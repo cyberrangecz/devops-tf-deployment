@@ -46,7 +46,7 @@ No requirements.
 | <a name="input_man_flavor"></a> [man\_flavor](#input\_man\_flavor) | Flavor name used for man nodes | `string` | `"csirtmu.tiny1x2"` | no |
 | <a name="input_man_image"></a> [man\_image](#input\_man\_image) | OpenStack image used for man nodes | `string` | `"debian-10-man"` | no |
 | <a name="input_oidc_providers"></a> [oidc\_providers](#input\_oidc\_providers) | List of OIDC providers. Set issuerIdentifier and userInfoUrl to empty string if not used. | <pre>list(object({<br>    url              = string<br>    logoutUrl        = string<br>    clientId         = string<br>    label            = string<br>    issuerIdentifier = string<br>    userInfoUrl      = string<br>    responseType     = string<br>    }<br>  ))</pre> | `[]` | no |
-| <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | n/a | `bool` | `false` | no |
+| <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | Ignore invalid tls certificate of local Keycloak | `bool` | `false` | no |
 | <a name="input_os_auth_url"></a> [os\_auth\_url](#input\_os\_auth\_url) | OpenStack authentication URL | `string` | n/a | yes |
 | <a name="input_os_region"></a> [os\_region](#input\_os\_region) | OpenStack region | `string` | `""` | no |
 | <a name="input_prometheus_jobs"></a> [prometheus\_jobs](#input\_prometheus\_jobs) | List of custom prometheus jobs | `list(any)` | `[]` | no |

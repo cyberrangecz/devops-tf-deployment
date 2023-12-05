@@ -138,8 +138,9 @@ variable "oidc_providers" {
 }
 
 variable "openid_configuration_insecure" {
-  type    = bool
-  default = false
+  type        = bool
+  description = "Ignore invalid tls certificate of local Keycloak"
+  default     = false
 }
 
 variable "prometheus_jobs" {
