@@ -36,32 +36,10 @@ kypo_crp_head_version         = "3.1.7"
 kypo_postgres_version         = "2.1.0"
 man_image                     = "debian-11-man-preinstalled"
 os_auth_url                   = ""
-oidc_providers = [
-  # Example of Azure OIDC issuer
-  #  {
-  #    url              = "https://login.microsoftonline.com/<tenant ID>/v2.0/"
-  #    logoutUrl        = "https://login.microsoftonline.com/<tenant ID>/oauth2/v2.0/logout"
-  #    client_id        = "Application (client) ID"
-  #    label            = "Login with Azure issuer"
-  #    issuerIdentifier = "https://sts.windows.net/<tenant ID>/"
-  #    userInfoUrl      = "https://graph.microsoft.com/oidc/userinfo"
-  #    responseType     = ""
-  #  }
-]
 openid_configuration_insecure = true
 proxy_host                    = ""
 proxy_key                     = ""
 users = {
-  # Example of a user from external OIDC issuer
-  #  "admin@example.com" = {
-  #    iss        = "https://example.com:443/issuer"
-  #    password   = ""
-  #    email      = "admin@example.com"
-  #    fullName   = "Demo Admin"
-  #    givenName  = "Demo"
-  #    familyName = "Admin"
-  #    admin      = true
-  #  }
   # Example of a user from local Keycloack issuer
   #  "kypo-admin" = {
   #    iss        = "https://head_host/keycloak/realms/KYPO"
