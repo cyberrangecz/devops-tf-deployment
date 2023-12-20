@@ -93,6 +93,12 @@ variable "kypo_crp_head_version" {
   default     = "2.0.0"
 }
 
+variable "kypo_gen_users_version" {
+  type        = string
+  description = "Version of kypo-gen-users helm package"
+  default     = "1.0.0"
+}
+
 variable "kypo_postgres_version" {
   type        = string
   description = "Version of kypo-postgres helm package"

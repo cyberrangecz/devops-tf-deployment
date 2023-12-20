@@ -35,6 +35,7 @@ module "kypo_crp" {
   head_ip                       = var.head_ip
   helm_repository               = var.helm_repository
   kypo_crp_head_version         = var.kypo_crp_head_version
+  kypo_gen_users_version        = var.kypo_gen_users_version
   kypo_postgres_version         = var.kypo_postgres_version
   man_flavor                    = var.man_flavor
   man_image                     = var.man_image
