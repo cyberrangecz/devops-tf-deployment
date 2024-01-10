@@ -186,14 +186,16 @@ variable "tls_public_key" {
 variable "users" {
   type = map(
     object({
-      iss        = string
-      password   = string
-      email      = string
-      fullName   = string
-      givenName  = string
-      familyName = string
-      admin      = bool
+      iss              = string
+      email            = string
+      fullName         = string
+      givenName        = string
+      familyName       = string
+      admin            = bool
+      keycloakUsername = string
+      keycloakPassword = string
       }
   ))
   description = "Dictionary with with users, that should be created in KYPO. For users from external OIDC providers, set password to empty string."
+  sensitive   = true
 }
