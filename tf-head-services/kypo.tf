@@ -51,7 +51,7 @@ module "kypo_crp" {
 
 module "monitoring" {
   count                         = var.enable_monitoring ? 1 : 0
-  source                        = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-monitoring.git?ref=v1.0.2"
+  source                        = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-monitoring.git?ref=v1.0.3"
   application_credential_id     = var.application_credential_id
   application_credential_secret = var.application_credential_secret
   grafana_oidc_provider         = local.grafana_oidc_provider
