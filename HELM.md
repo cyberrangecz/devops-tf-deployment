@@ -38,7 +38,7 @@ Kubernetes cluster, which is **not deployed** by [tf-openstack-base](tf-openstac
  * `os_auth_url` - OpenStack authentication URL, can be obtained in OpenStack project -> API access -> View Credentials -> Authentication URL
  * `proxy_host` - FQDN or IP address of proxy-jump host. Use **proxy_host** output from [tf-openstack-base](tf-openstack-base).
  * `proxy_key` - Base64 encoded proxy-jump ssh private key. Use **proxy_key** output from [tf-openstack-base](tf-openstack-base).
- * `users` - map of OIDC user accounts. Local OIDC issuer accounts are created in local OIDC issuer and registered in KYPO. For local OIDC issuer account uncomment "Example of a user from internal local OIDC issuer" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base). For external OIDC issuer, uncomment "Example of a user from external OIDC issuer" and leave a password as an empty string. At least one user needs to have the admin attribute set to true.
+ * `users` - map of OIDC user accounts. Local OIDC issuer accounts are created in local Keycloak provider and registered in KYPO. For local OIDC issuer account uncomment "Example of a user from local Keycloack issuer" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
 
  You can also specify these optional variables:
  * `enable_monitoring` - Adds monitoring component to the deployment
