@@ -38,7 +38,7 @@
 | <a name="input_dns_nameservers"></a> [dns\_nameservers](#input\_dns\_nameservers) | List of DNS name servers used for instances | `list(string)` | <pre>[<br>  "1.1.1.1",<br>  "1.0.0.1"<br>]</pre> | no |
 | <a name="input_external_network_name"></a> [external\_network\_name](#input\_external\_network\_name) | External network name used for floating IP allocation | `string` | n/a | yes |
 | <a name="input_import_kali"></a> [import\_kali](#input\_import\_kali) | Import Kali image | `bool` | `true` | no |
-| <a name="input_k3s_version"></a> [k3s\_version](#input\_k3s\_version) | Version of k3s distribution | `string` | `"v1.25.3+k3s1"` | no |
+| <a name="input_k3s_version"></a> [k3s\_version](#input\_k3s\_version) | Version of k3s distribution | `string` | `"v1.27.9+k3s1"` | no |
 | <a name="input_kypo_kubernetes_cluster_flavor_name"></a> [kypo\_kubernetes\_cluster\_flavor\_name](#input\_kypo\_kubernetes\_cluster\_flavor\_name) | OpenStack flavor used by KYPO kubernetes cluster instance | `string` | n/a | yes |
 | <a name="input_kypo_proxy_flavor_name"></a> [kypo\_proxy\_flavor\_name](#input\_kypo\_proxy\_flavor\_name) | OpenStack flavor used by KYPO proxy jump instance | `string` | n/a | yes |
 | <a name="input_preinstalled_man"></a> [preinstalled\_man](#input\_preinstalled\_man) | Import preinstalled man image | `bool` | `true` | no |

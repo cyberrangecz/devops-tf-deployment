@@ -43,7 +43,7 @@ variable "import_kali" {
 variable "k3s_version" {
   type        = string
   description = "Version of k3s distribution"
-  default     = "v1.25.3+k3s1"
+  default     = "v1.27.9+k3s1"
 }
 
 variable "kypo_kubernetes_cluster_flavor_name" {
