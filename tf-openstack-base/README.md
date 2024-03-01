@@ -4,7 +4,6 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_tls"></a> [tls](#requirement\_tls) | 3.1.0 |
 
 ## Providers
 
