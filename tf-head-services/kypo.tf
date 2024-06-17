@@ -22,7 +22,7 @@ locals {
 }
 
 module "kypo_crp" {
-  source                        = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-crp-helm.git?ref=v2.1.1"
+  source                        = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-crp-helm.git?ref=v3.0.0"
   acme_contact                  = var.acme_contact
   application_credential_id     = var.application_credential_id
   application_credential_secret = var.application_credential_secret

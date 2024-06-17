@@ -32,18 +32,20 @@ variable "gen_user_count" {
 
 variable "git_config" {
   type = object({
-    type                 = string
-    server               = string
-    sshPort              = number
-    restServerUrl        = string
+    providers            = map(string)
     user                 = string
-    privateKey           = string
-    accessToken          = string
     ansibleNetworkingUrl = string
     ansibleNetworkingRev = string
     }
   )
-  description = "Git configuration for KYPO. For internal GIT, set privateKey to empty string."
+  description = "Git configuration for KYPO."
+  sensitive   = true
+  default = {
+    providers            = {}
+    user                 = "git"
+    ansibleNetworkingUrl = "https://gitlab.ics.muni.cz/muni-kypo-crp/backend-python/ansible-networking-stage/kypo-ansible-stage-one.git"
+    ansibleNetworkingRev = "v1.0.18"
+  }
 }
 
 variable "guacamole_admin_password" {
@@ -90,13 +92,13 @@ variable "kubernetes_client_key" {
 variable "kypo_crp_head_version" {
   type        = string
   description = "Version of kypo-crp-head helm package"
-  default     = "2.0.0"
+  default     = "4.0.0"
 }
 
 variable "kypo_gen_users_version" {
   type        = string
   description = "Version of kypo-gen-users helm package"
-  default     = "1.0.0"
+  default     = "2.0.1"
 }
 
 variable "kypo_postgres_version" {
@@ -169,6 +171,24 @@ variable "sandbox_ansible_timeout" {
   type        = number
   description = "Timeout for sandbox provisioning stage"
   default     = 7200
+}
+
+variable "smtp_config" {
+  type = object({
+    smtp_server           = string
+    smtp_port             = number
+    sender_email          = string
+    sender_email_password = string
+    }
+  )
+  description = "SMTP configuration for Sandbox Service notificatins"
+  sensitive   = true
+  default = {
+    smtp_server           = ""
+    smtp_port             = 25
+    sender_email          = ""
+    sender_email_password = ""
+  }
 }
 
 variable "tls_private_key" {
