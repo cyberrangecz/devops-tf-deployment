@@ -177,6 +177,7 @@ variable "smtp_config" {
   type = object({
     smtp_server           = string
     smtp_port             = number
+    smtp_encryption       = string
     sender_email          = string
     sender_email_password = string
     }
@@ -186,8 +187,13 @@ variable "smtp_config" {
   default = {
     smtp_server           = ""
     smtp_port             = 25
+    smtp_encryption       = ""
     sender_email          = ""
     sender_email_password = ""
+  }
+  validation {
+    condition     = contains(["SSL", "TSL", "INSECURE", ""], var.smtp_config.smtp_encryption)
+    error_message = "The connection type must be one of SSL, TSL, INSECURE or empty string."
   }
 }
 
