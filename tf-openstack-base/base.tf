@@ -30,7 +30,7 @@ data "openstack_images_image_v2" "ubuntu" {
 }
 
 module "proxy_jump" {
-  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git?ref=v1.0.0"
+  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-proxy-jump.git?ref=v1.1.0"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_medium_name : var.kypo_proxy_flavor_name
   image_id              = data.openstack_images_image_v2.ubuntu.id
@@ -42,7 +42,7 @@ module "proxy_jump" {
 
 module "kubernetes_cluster" {
   count                 = var.deploy_kubernetes_cluster ? 1 : 0
-  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git?ref=v3.0.0"
+  source                = "git::https://gitlab.ics.muni.cz/muni-kypo-crp/devops/terraform-modules/kypo-crp-tf-module-kypo-kubernetes-cluster.git?ref=v3.3.0"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_large_name : var.kypo_kubernetes_cluster_flavor_name
   image_id              = data.openstack_images_image_v2.ubuntu.id
