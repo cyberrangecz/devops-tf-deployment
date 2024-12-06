@@ -1,0 +1,38 @@
+acme_contact                  = ""
+application_credential_id     = ""
+application_credential_secret = ""
+enable_monitoring             = false
+gen_user_count                = ""
+# git_config = {
+#   providers            = {"https://github.com/": "TOKEN"}
+#   user                 = "git"
+#   ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
+#   ansibleNetworkingRev = "v1.0.0"
+# }
+head_host                     = ""
+kubernetes_api_url            = ""
+head_version                  = "1.0.0"
+gen_users_version             = "1.0.0"
+postgres_version              = "1.0.0"
+man_image                     = "debian-12-x86_64"
+os_auth_url                   = ""
+openid_configuration_insecure = true
+# smtp_config = {
+#   smtp_server           = ""
+#   smtp_port             = 25
+#   sender_email          = ""
+#   sender_email_password = ""
+# }
+users = {
+  # Example of a user from local Keycloack issuer
+  #  "crczp-admin" = {
+  #    iss              = "https://head_host/keycloak/realms/CRCZP"
+  #    keycloakUsername = "crczp-admin"
+  #    keycloakPassword = "password"
+  #    email            = "crczp-admin@example.com"
+  #    fullName         = "Demo Admin"
+  #    givenName        = "Demo"
+  #    familyName       = "Admin"
+  #    admin            = true
+  #  }
+}

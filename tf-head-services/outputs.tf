@@ -5,7 +5,7 @@ output "monitoring_admin_password" {
 }
 
 output "keycloak_password" {
-  value       = module.kypo_crp.keycloak_password
+  value       = module.helm.keycloak_password
   description = "Password for Keycloak admin users"
   sensitive   = true
 }

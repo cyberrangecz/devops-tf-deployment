@@ -5,17 +5,42 @@ variable "acme_contact" {
 
 variable "application_credential_id" {
   type        = string
-  description = "Application credentials ID for accessing OpenStack project"
+  description = "Application credentials ID for accessing OpenStack project (mutually exclusive with aws parameter)"
+  default     = ""
 }
 
 variable "application_credential_secret" {
   type        = string
-  description = "Application credentials secret for accessing OpenStack project"
+  description = "Application credentials secret for accessing OpenStack project (mutually exclusive with aws parameter)"
+  sensitive   = true
+  default     = ""
+}
+
+variable "aws_config" {
+  type = object({
+    accessKeyId      = string
+    secretAccessKey  = string
+    region           = string
+    availabilityZone = string
+    baseVpc          = string
+    baseSubnet       = string
+    }
+  )
+  description = "AWS configuration (mutually exclusive with application_credential_id, application_credential_secret and os_auth_url parameters)"
+  sensitive   = true
+  default = {
+    accessKeyId      = ""
+    secretAccessKey  = ""
+    region           = "eu-central-1"
+    availabilityZone = "eu-central-1a"
+    baseVpc          = "BaseNet"
+    baseSubnet       = "BaseSubnetA"
+  }
 }
 
 variable "deploy_head_timeout" {
   type        = number
-  description = "Timeout for deploying kypo-crp-head helm package in seconds"
+  description = "Timeout for deploying crczp-head helm package in seconds"
   default     = 3600
 }
 
@@ -38,90 +63,79 @@ variable "git_config" {
     ansibleNetworkingRev = string
     }
   )
-  description = "Git configuration for KYPO."
+  description = "Git configuration"
   sensitive   = true
   default = {
     providers            = {}
     user                 = "git"
-    ansibleNetworkingUrl = "https://gitlab.ics.muni.cz/muni-kypo-crp/backend-python/ansible-networking-stage/kypo-ansible-stage-one.git"
+    ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
     ansibleNetworkingRev = "v1.0.18"
   }
 }
 
-variable "guacamole_admin_password" {
-  type        = string
-  description = "Password of guacamole admin user"
-}
-
-variable "guacamole_user_password" {
-  type        = string
-  description = "Password of guacamole normal user"
-}
-
 variable "head_host" {
   type        = string
-  description = "FQDN/IP address of node/LB, where KYPO head services are running"
-}
-
-variable "head_ip" {
-  type        = string
-  description = "IP address of node/LB, where KYPO head services are running"
+  description = "FQDN/IP address of node/LB, where head services are running"
 }
 
 variable "helm_repository" {
   type        = string
-  description = "Repository with KYPO-head helm packages"
-  default     = "https://gitlab.ics.muni.cz/api/v4/projects/2358/packages/helm/stable"
+  description = "Repository with head helm packages"
+  default     = "oci://ghcr.io/cyberrangecz/stable"
 }
 
-variable "kubernetes_host" {
+variable "kubernetes_api_url" {
   type        = string
-  description = "FQDN/IP address of Kubernetes API"
+  description = "Kubernetes API URL"
+  default     = ""
 }
 
-variable "kubernetes_client_certificate" {
+variable "kubernetes_token" {
   type        = string
-  description = "Base64 encoded client certificate for authentication to Kubernetes API"
+  description = "Token for authentication to Kubernetes API (AWS EKS)"
+  default     = ""
 }
 
-variable "kubernetes_client_key" {
+variable "certs_version" {
   type        = string
-  description = "Base64 encoded client key for authentication to Kubernetes API"
+  description = "Version of certs helm package"
+  default     = "1.0.0"
 }
 
-variable "kypo_crp_head_version" {
+variable "head_version" {
   type        = string
-  description = "Version of kypo-crp-head helm package"
-  default     = "4.0.0"
+  description = "Version of head helm package"
+  default     = "1.0.0"
 }
 
-variable "kypo_gen_users_version" {
+variable "gen_users_version" {
   type        = string
-  description = "Version of kypo-gen-users helm package"
-  default     = "2.0.1"
+  description = "Version of gen-users helm package"
+  default     = "1.0.0"
 }
 
-variable "kypo_postgres_version" {
+variable "postgres_version" {
   type        = string
-  description = "Version of kypo-postgres helm package"
-  default     = "2.1.0"
+  description = "Version of postgres helm package"
+  default     = "1.0.0"
 }
 
 variable "man_flavor" {
   type        = string
   description = "Flavor name used for man nodes"
-  default     = "csirtmu.tiny1x2"
+  default     = "standard.small"
 }
 
 variable "man_image" {
   type        = string
   description = "OpenStack image used for man nodes"
-  default     = "debian-10-man"
+  default     = "debian-12-x86_64"
 }
 
 variable "os_auth_url" {
   type        = string
-  description = "OpenStack authentication URL"
+  description = "OpenStack authentication URL (mutually exclusive with aws parameter)"
+  default     = ""
 }
 
 variable "os_region" {
@@ -151,26 +165,22 @@ variable "openid_configuration_insecure" {
   default     = false
 }
 
-variable "prometheus_jobs" {
-  type        = list(any)
-  description = "List of custom prometheus jobs"
-  default     = []
-}
-
-variable "proxy_host" {
+variable "region" {
   type        = string
-  description = "FQDN/IP address of proxy-jump host"
-}
-
-variable "proxy_key" {
-  type        = string
-  description = "Base64 encoded proxy-jump ssh private key"
+  description = "AWS region"
+  default     = "eu-central-1"
 }
 
 variable "sandbox_ansible_timeout" {
   type        = number
   description = "Timeout for sandbox provisioning stage"
   default     = 7200
+}
+
+variable "self_signed" {
+  type        = bool
+  description = "Use selfsigned certificates instead of Let's Encrypt for fqdn"
+  default     = false
 }
 
 variable "smtp_config" {
@@ -222,6 +232,6 @@ variable "users" {
       keycloakPassword = string
       }
   ))
-  description = "Dictionary with with users, that should be created in KYPO. For users from external OIDC providers, set password to empty string."
+  description = "Dictionary with with users, that should be created in CyberRangeCZ Platform. For users from external OIDC providers, set password to empty string."
   sensitive   = true
 }

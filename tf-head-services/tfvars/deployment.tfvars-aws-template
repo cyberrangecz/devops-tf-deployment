@@ -1,0 +1,37 @@
+acme_contact = ""
+aws_config = {
+  accessKeyId      = ""
+  secretAccessKey  = ""
+  region           = "eu-central-1"
+  availabilityZone = "eu-central-1a"
+  baseVpc          = "BaseNet"
+  baseSubnet       = "BaseSubnetA"
+}
+enable_monitoring = false
+gen_user_count    = "0"
+#git_config = {
+#  providers            = { "https://github.com/" : "TOKEN" }
+#  user                 = "git"
+#  ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
+#  ansibleNetworkingRev = "v1.0.0"
+#}
+head_host                     = ""
+head_version                  = "1.0.0"
+gen_users_version             = "1.0.0"
+postgres_version              = "1.0.0"
+man_image                     = "ami-0de54c4b3a9f841da" #ubuntu-noble-24.04-amd64-server-20250225
+man_flavor                    = "t3.large"
+openid_configuration_insecure = true
+users = {
+  #Example of a user from local Keycloack issuer
+  "crczp-admin" = {
+    iss              = "https://head_host/keycloak/realms/CRCZP"
+    keycloakUsername = "crczp-admin"
+    keycloakPassword = "password"
+    email            = "crczp-admin@example.com"
+    fullName         = "Demo Admin"
+    givenName        = "Demo"
+    familyName       = "Admin"
+    admin            = true
+  }
+}

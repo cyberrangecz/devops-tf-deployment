@@ -1,0 +1,27 @@
+data "terraform_remote_state" "openstack_base" {
+  backend = "local"
+
+  config = {
+    path = "../tf-openstack-base/terraform.tfstate"
+  }
+}
+
+provider "helm" {
+  kubernetes {
+    host               = var.kubernetes_api_url
+    client_certificate = base64decode(data.terraform_remote_state.openstack_base.outputs.kubernetes_client_certificate)
+    client_key         = base64decode(data.terraform_remote_state.openstack_base.outputs.kubernetes_client_key)
+    insecure           = true
+  }
+}
+
+provider "kubernetes" {
+  host               = var.kubernetes_api_url
+  client_certificate = base64decode(data.terraform_remote_state.openstack_base.outputs.kubernetes_client_certificate)
+  client_key         = base64decode(data.terraform_remote_state.openstack_base.outputs.kubernetes_client_key)
+  insecure           = true
+  ignore_annotations = [
+    "cattle\\.io\\/status",
+    "lifecycle\\.cattle\\.io\\/create\\.namespace-auth"
+  ]
+}

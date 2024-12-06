@@ -1,50 +1,43 @@
-# Deployment of KYPO-CRP Helm application
+# Deployment of CyberRangeCZ Platform Helm application
 
-This guide deploys KYPO-CRP Helm packages (https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-helm) to the Kubernetes cluster. You can use
-Kubernetes cluster deployed by [tf-openstack-base](tf-openstack-base). For general
-Kubernetes cluster, which is **not deployed** by [tf-openstack-base](tf-openstack-base), there are these requirements and limitations:
-* Kubernetes cluster needs to be accessible from KYPO OpenStack router gateway
-* KYPO proxy jump host needs to be accessible from Kubernetes cluster over ssh
-* Kubernetes cluster needs to have a single worker node (we are working on removing this limitation)
-* Guacamole console is not supported
+This guide deploys CyberRangeCZ Platform Helm packages (https://github.com/cyberrangecz/devops-helm) to the Kubernetes cluster. You can use
+Kubernetes cluster deployed by [tf-openstack-base](tf-openstack-base) or by [tf-aws-base](tf-aws-base) and [tf-aws-kube-base](tf-aws-kube-base).
 
 1. Enter tf-head-services directory:\
 `cd tf-head-services`
 
-2. Create **deployment.tfvars** from template **deployment.tfvars-template**:\
-`cp tfvars/deployment.tfvars-template tfvars/deployment.tfvars`\
- and setup these **required** variables:
+2. Create **deployment.tfvars** from template **deployment.tfvars-os-template** for OpenStack deployment and from **deployment.tfvars-aws-template** for AWS deployment
+ and setup these **required** variables (common for OpenStack and AWS):
  * `acme_contact` - Let's encrypt contact email address
- * `application_credential_id` - application credentials ID, which was generated for KYPO
- * `application_credential_secret` - application credential secret, which was generated for KYPO
  * `gen_user_count` - number of user accounts that should be generated in local oidc issuer
- * `guacamole_admin_password` - password used for creating a Guacamole admin account
- * `guacamole_user_password` - password used for creating a Guacamole user account
- * `head_host` - FQDN or IP address of KYPO portal. Can be set to **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
- * `head_ip` - IP address of KYPO portal. Can be set to **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
- * `kubernetes_host` - FQDN or IP address of Kubernetes API. Can be set to **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
- * `kubernetes_client_certificate` - Base64 encoded client certificate for authentication to Kubernetes API. Can be set to **kubernetes_client_certificate** output from [tf-openstack-base](tf-openstack-base).
- * `kubernetes_client_key` - Base64 encoded client key for authentication to Kubernetes API. Can be set to **kubernetes_client_key** output from [tf-openstack-base](tf-openstack-base).
- * `os_auth_url` - OpenStack authentication URL, can be obtained in OpenStack project -> API access -> View Credentials -> Authentication URL
- * `proxy_host` - FQDN or IP address of proxy-jump host. Use **proxy_host** output from [tf-openstack-base](tf-openstack-base).
- * `proxy_key` - Base64 encoded proxy-jump ssh private key. Use **proxy_key** output from [tf-openstack-base](tf-openstack-base).
- * `users` - map of OIDC user accounts. Local OIDC issuer accounts are created in local Keycloak provider and registered in KYPO. For local OIDC issuer account uncomment "Example of a user from local Keycloack issuer" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
+ * `head_host` - FQDN or IP address of CyberRangeCZ Platform portal. Can be set to **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
+ * `users` - map of OIDC user accounts. Local OIDC issuer accounts are created in local Keycloak provider and registered in CyberRangeCZ Platform. For local OIDC issuer account uncomment "Example of a user from local Keycloack issuer" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
+
+Required variables for OpenStack:
+ * `application_credential_id` - application credentials ID, which was generated for CyberRangeCZ Platform
+ * `application_credential_secret` - application credential secret, which was generated for CyberRangeCZ Platform
+ * `head_ip` - IP address of CyberRangeCZ Platform portal. Can be set to **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
+ * `kubernetes_api_url` - URL of Kubernetes API. Can be set to https://**cluster_ip**:6443 output from [tf-openstack-base](tf-openstack-base).
+  * `os_auth_url` - OpenStack authentication URL, can be obtained in OpenStack project -> API access -> View Credentials -> Authentication URL
+
+Required variables for AWS:
+* `aws_config` - map with AWS settings
 
  You can also specify these optional variables:
- * `enable_monitoring` - Adds monitoring component to the deployment
+ * `enable_monitoring` (OpenStack only) - Adds monitoring component to the deployment
  * `git_config` - Configuration for accessing private repositories
      * providers - hash with mappings of tokens to the GitLab instances URL
      * user - user with access to the private repositories over GitLab API
-     * ansibleNetworkingUrl - ansible stage one repo URL (https://gitlab.ics.muni.cz/muni-kypo-crp/backend-python/ansible-networking-stage/kypo-ansible-stage-one)
+     * ansibleNetworkingUrl - ansible stage one repo URL (https://github.com/cyberrangecz/ansible-stage-one.git)
      * ansibleNetworkingRev - revision of ansible stage one repo
  * `helm_repository` - Repository with Helm packages
- * `tls_private_key` & `tls_public_key` - Base64 encoded custom tls certificate/key for KYPO portal. If one of them is not specified, both are generated by the KYPO Helm package (self-signed for IP  addresses and Let's Encrypt for FQDN).
- * `man_flavor` - OpenStack flavor used by man nodes
- * `man_image` - OpenStack image used for man nodes
+ * `tls_private_key` & `tls_public_key` - Base64 encoded custom tls certificate/key for CyberRangeCZ Platform portal. If one of them is not specified, both are generated by the CyberRangeCZ Platform Helm package (self-signed for IP  addresses and Let's Encrypt for FQDN).
+ * `man_flavor` - OpenStack flavor or AWS instance type used by man nodes
+ * `man_image` - OpenStack image or AWS AMI used for man nodes
  * `oidc_providers` - list of configurations of OIDC providers used for authentication. When empty, a local Keycloak provider will be utilized.
- * `openid_configuration_insecure` - Ignore invalid tls certificate of local Keycloak. Required if **enable_monitoring** is set to true and tls certificate of KYPO portal is not from trusted CA.
+ * `openid_configuration_insecure` - Ignore invalid tls certificate of local Keycloak. Required if **enable_monitoring** is set to true and tls certificate of CyberRangeCZ Platform portal is not from trusted CA.
  * `prometheus_jobs` - List of custom Prometheus jobs to support custom monitoring targets, e.g., outside of sandbox topology.
- * `os_region` - OpenStack region name. Required if **enable_monitoring** is set to true
+ * `os_region` (OpenStack only) - OpenStack region name. Required if **enable_monitoring** is set to true
  * `sandbox_ansible_timeout` - Timeout for sandbox provisioning stage
  * `smtp_config` - SMTP configuration for Sandbox Service notifications
      * smtp_server - SMTP server FQDN

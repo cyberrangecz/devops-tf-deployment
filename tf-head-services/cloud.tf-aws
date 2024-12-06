@@ -1,0 +1,32 @@
+data "aws_security_group" "eks_lb" {
+  name = "eks-lb-sg"
+}
+
+locals {
+  proxy_host = data.terraform_remote_state.aws_base.outputs.proxy_public_ip
+  proxy_key  = data.terraform_remote_state.aws_base.outputs.proxy_key
+  aws_config = {
+    accessKeyId      = var.aws_config.accessKeyId
+    secretAccessKey  = var.aws_config.secretAccessKey
+    region           = var.aws_config.region
+    availabilityZone = var.aws_config.availabilityZone
+    baseVpc          = var.aws_config.baseVpc
+    baseSubnet       = var.aws_config.baseSubnet
+    eksSgId          = data.aws_security_group.eks_lb.id
+  }
+  oidc_providers = [{
+    url              = "https://${var.head_host}/keycloak/realms/CRCZP"
+    logoutUrl        = "https://${var.head_host}/keycloak/realms/CRCZP/protocol/openid-connect/logout"
+    clientId         = "CRCZP-Client"
+    label            = "Login with local Keycloack"
+    responseType     = "code"
+    refreshToken     = true
+    issuerIdentifier = ""
+    userInfoUrl      = ""
+  }]
+  grafana_oidc_provider = {
+    url          = "https://${var.head_host}/keycloak/realms/CRCZP"
+    clientId     = "Grafana-Client"
+    clientSecret = random_password.grafana_secret.result
+  }
+}

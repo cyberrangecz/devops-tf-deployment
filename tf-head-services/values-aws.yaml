@@ -1,19 +1,24 @@
 crczp-elasticsearch:
   pvc:
-    storageClassName: local-path
+    storageClassName: gp3
 
 crczp-guacamole:
   guacd:
     pvc:
-      storageClassName: local-path
+      storageClassName: gp3
 
 postgres:
   pvc:
-    storageClassName: local-path
+    storageClassName: gp3
 
 sandbox:
+  manUser: ubuntu
   stackNamePrefix: default
   osConsoleType: spice-html5
   dnsNameServers:
     - 1.1.1.1
     - 1.0.0.1
+  pvc:
+    enabled: true
+    storageClassName: root-efs-sc
+    accessMode: ReadWriteMany

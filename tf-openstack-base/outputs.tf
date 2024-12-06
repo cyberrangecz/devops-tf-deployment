@@ -1,6 +1,6 @@
 output "cluster_ip" {
   value       = module.kubernetes_cluster[0].cluster_ip
-  description = "Floating IP address of KYPO kubernetes cluster instance"
+  description = "Floating IP address of kubernetes cluster instance"
 }
 
 output "proxy_host" {

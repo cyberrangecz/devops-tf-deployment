@@ -1,15 +1,3 @@
-variable "csirtmu_tiny_disk" {
-  type        = string
-  description = "Disk size of csirtmu tiny flavor in GB"
-  default     = "20"
-}
-
-variable "csirtmu_tiny_ram" {
-  type        = string
-  description = "RAM size of csirtmu tiny flavor in MB"
-  default     = "2048"
-}
-
 variable "deploy_flavors" {
   type        = bool
   description = "If flavors should be created in OpenStack"
@@ -18,7 +6,7 @@ variable "deploy_flavors" {
 
 variable "deploy_kubernetes_cluster" {
   type        = bool
-  description = "If KYPO kubernetes cluster for head services should be deployed"
+  description = "If kubernetes cluster for head services should be deployed"
   default     = true
 }
 
@@ -39,27 +27,20 @@ variable "import_kali" {
   default     = true
 }
 
-
 variable "k3s_version" {
   type        = string
   description = "Version of k3s distribution"
-  default     = "v1.27.9+k3s1"
+  default     = "v1.31.4+k3s1"
 }
 
-variable "kypo_kubernetes_cluster_flavor_name" {
+variable "kubernetes_cluster_flavor_name" {
   type        = string
-  description = "OpenStack flavor used by KYPO kubernetes cluster instance"
+  description = "OpenStack flavor used by kubernetes cluster instance"
 }
 
-variable "kypo_proxy_flavor_name" {
+variable "proxy_flavor_name" {
   type        = string
-  description = "OpenStack flavor used by KYPO proxy jump instance"
-}
-
-variable "preinstalled_man" {
-  type        = bool
-  description = "Import preinstalled man image"
-  default     = true
+  description = "OpenStack flavor used by Proxy Jump instance"
 }
 
 variable "standard_small_disk" {

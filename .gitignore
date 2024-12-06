@@ -3,3 +3,7 @@
 .terraform.lock.hcl
 *deployment.tfvars
 tf-head-services/config
+.env
+config
+tf-head-services/provider.tf
+cloud.tf
