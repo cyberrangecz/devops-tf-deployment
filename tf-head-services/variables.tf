@@ -129,7 +129,7 @@ variable "man_flavor" {
 variable "man_image" {
   type        = string
   description = "OpenStack image used for man nodes"
-  default     = "debian-12-x86_64"
+  default     = "ubuntu-noble-x86_64"
 }
 
 variable "os_auth_url" {

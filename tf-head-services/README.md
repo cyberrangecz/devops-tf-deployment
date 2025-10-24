@@ -43,7 +43,7 @@ No requirements.
 | <a name="input_kubernetes_api_url"></a> [kubernetes\_api\_url](#input\_kubernetes\_api\_url) | Kubernetes API URL | `string` | `""` | no |
 | <a name="input_kubernetes_token"></a> [kubernetes\_token](#input\_kubernetes\_token) | Token for authentication to Kubernetes API (AWS EKS) | `string` | `""` | no |
 | <a name="input_man_flavor"></a> [man\_flavor](#input\_man\_flavor) | Flavor name used for man nodes | `string` | `"standard.small"` | no |
-| <a name="input_man_image"></a> [man\_image](#input\_man\_image) | OpenStack image used for man nodes | `string` | `"debian-12-x86_64"` | no |
+| <a name="input_man_image"></a> [man\_image](#input\_man\_image) | OpenStack image used for man nodes | `string` | `"ubuntu-noble-x86_64"` | no |
 | <a name="input_oidc_providers"></a> [oidc\_providers](#input\_oidc\_providers) | List of OIDC providers. Set issuerIdentifier and userInfoUrl to empty string if not used. | <pre>list(object({<br/>    url              = string<br/>    logoutUrl        = string<br/>    clientId         = string<br/>    label            = string<br/>    issuerIdentifier = string<br/>    userInfoUrl      = string<br/>    responseType     = string<br/>    }<br/>  ))</pre> | `[]` | no |
 | <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | Ignore invalid tls certificate of local Keycloak | `bool` | `false` | no |
 | <a name="input_os_auth_url"></a> [os\_auth\_url](#input\_os\_auth\_url) | OpenStack authentication URL (mutually exclusive with aws parameter) | `string` | `""` | no |
