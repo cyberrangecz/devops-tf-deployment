@@ -23,7 +23,7 @@ man_image                     = "ami-0de54c4b3a9f841da" #ubuntu-noble-24.04-amd6
 man_flavor                    = "t3.large"
 openid_configuration_insecure = true
 users = {
-  #Example of a user from local Keycloack issuer
+  #Example of a user from local Keycloak issuer
   "crczp-admin" = {
     iss              = "https://head_host/keycloak/realms/CRCZP"
     keycloakUsername = "crczp-admin"

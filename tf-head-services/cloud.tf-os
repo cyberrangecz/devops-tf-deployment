@@ -14,7 +14,7 @@ locals {
     url              = "https://${var.head_host}/keycloak/realms/CRCZP"
     logoutUrl        = "https://${var.head_host}/keycloak/realms/CRCZP/protocol/openid-connect/logout"
     clientId         = "CRCZP-Client"
-    label            = "Login with local Keycloack"
+    label            = "Login with local Keycloak"
     responseType     = "code"
     refreshToken     = true
     issuerIdentifier = ""

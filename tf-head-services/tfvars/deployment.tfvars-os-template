@@ -24,7 +24,7 @@ openid_configuration_insecure = true
 #   sender_email_password = ""
 # }
 users = {
-  # Example of a user from local Keycloack issuer
+  # Example of a user from local Keycloak issuer
   #  "crczp-admin" = {
   #    iss              = "https://head_host/keycloak/realms/CRCZP"
   #    keycloakUsername = "crczp-admin"

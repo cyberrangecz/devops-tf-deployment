@@ -11,7 +11,7 @@ Kubernetes cluster deployed by [tf-openstack-base](tf-openstack-base) or by [tf-
  * `acme_contact` - Let's encrypt contact email address
  * `gen_user_count` - number of user accounts that should be generated in local oidc issuer
  * `head_host` - FQDN or IP address of CyberRangeCZ Platform portal. Can be set to **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
- * `users` - map of OIDC user accounts. Local OIDC issuer accounts are created in local Keycloak provider and registered in CyberRangeCZ Platform. For local OIDC issuer account uncomment "Example of a user from local Keycloack issuer" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
+ * `users` - map of OIDC user accounts. Local OIDC issuer accounts are created in local Keycloak provider and registered in CyberRangeCZ Platform. For local OIDC issuer account uncomment "Example of a user from local Keycloak issuer" section in the template and replace **head_host** for **cluster_ip** output from [tf-openstack-base](tf-openstack-base).
 
 Required variables for OpenStack:
  * `application_credential_id` - application credentials ID, which was generated for CyberRangeCZ Platform
