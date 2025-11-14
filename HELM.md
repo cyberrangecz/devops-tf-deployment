@@ -46,7 +46,7 @@ Required variables for AWS:
      * sender_email_password - password for SMTP sender account (required for encrypted communication)
 
 3. Initialize Terraform:\
-`terraform init`
+`tofu init`
 
 4. Deploy Helm packages:\
-`terraform apply -var-file tfvars/deployment.tfvars`
+   `tofu apply -var-file tfvars/deployment.tfvars`
