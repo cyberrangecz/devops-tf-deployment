@@ -7,13 +7,14 @@ gen_user_count                = ""
 #   providers            = {"https://github.com/": "TOKEN"}
 #   user                 = "git"
 #   ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-#   ansibleNetworkingRev = "v1.3.0"
+#   ansibleNetworkingRev = "v1.5.1"
 # }
 head_host                     = ""
 kubernetes_api_url            = ""
-head_version                  = "1.0.0"
+head_version                  = "2.0.0"
 gen_users_version             = "1.0.0"
-postgres_version              = "1.0.0"
+postgres_version              = "2.0.0"
+certs_version                 = "1.0.1"
 man_image                     = "ubuntu-noble-x86_64"
 os_auth_url                   = ""
 openid_configuration_insecure = true

@@ -4,7 +4,7 @@ resource "random_password" "grafana_secret" {
 }
 
 module "helm" {
-  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.0.0"
+  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.3.0"
   acme_contact                  = var.acme_contact
   application_credential_id     = var.application_credential_id
   application_credential_secret = var.application_credential_secret
