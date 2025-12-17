@@ -7,7 +7,7 @@ data "terraform_remote_state" "aws_base" {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     host                   = data.terraform_remote_state.aws_base.outputs.eks_cluster_host
     cluster_ca_certificate = base64decode(data.terraform_remote_state.aws_base.outputs.eks_cluster_ca_certificate)
     insecure               = false

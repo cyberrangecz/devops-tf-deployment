@@ -13,7 +13,7 @@ gen_user_count    = "0"
 #  providers            = { "https://github.com/" : "TOKEN" }
 #  user                 = "git"
 #  ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-#  ansibleNetworkingRev = "v1.5.1"
+#  ansibleNetworkingRev = "v1.6.0"
 #}
 head_host                     = ""
 head_version                  = "2.0.0"

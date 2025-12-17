@@ -14,8 +14,8 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.0.0 |
-| <a name="module_monitoring"></a> [monitoring](#module\_monitoring) | git::https://github.com/cyberrangecz/tf-module-monitoring.git | v1.0.0 |
+| <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.4.0 |
+| <a name="module_monitoring"></a> [monitoring](#module\_monitoring) | git::https://github.com/cyberrangecz/tf-module-monitoring.git | v1.2.1 |
 
 ## Resources
 

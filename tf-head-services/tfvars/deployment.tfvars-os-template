@@ -2,12 +2,12 @@ acme_contact                  = ""
 application_credential_id     = ""
 application_credential_secret = ""
 enable_monitoring             = false
-gen_user_count                = ""
+gen_user_count                = "0"
 # git_config = {
 #   providers            = {"https://github.com/": "TOKEN"}
 #   user                 = "git"
 #   ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-#   ansibleNetworkingRev = "v1.5.1"
+#   ansibleNetworkingRev = "v1.6.0"
 # }
 head_host                     = ""
 kubernetes_api_url            = ""
