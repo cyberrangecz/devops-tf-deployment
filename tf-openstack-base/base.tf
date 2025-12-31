@@ -39,7 +39,7 @@ module "proxy_jump" {
 
 module "kubernetes_cluster" {
   count                 = var.deploy_kubernetes_cluster ? 1 : 0
-  source                = "git::https://github.com/cyberrangecz/tf-module-kubernetes-cluster.git?ref=v1.0.0"
+  source                = "git::https://github.com/cyberrangecz/tf-module-kubernetes-cluster.git?ref=v1.1.0"
   external_network_name = var.external_network_name
   flavor_name           = var.deploy_flavors ? module.flavors[0].standard_large_name : var.kubernetes_cluster_flavor_name
   image_id              = data.openstack_images_image_v2.ubuntu.id
