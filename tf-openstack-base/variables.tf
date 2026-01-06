@@ -38,6 +38,12 @@ variable "kubernetes_cluster_flavor_name" {
   description = "OpenStack flavor used by kubernetes cluster instance"
 }
 
+variable "network_cidr" {
+  description = "CIDR block for the base-subnet"
+  type        = string
+  default     = "192.168.64.0/18"
+}
+
 variable "proxy_flavor_name" {
   type        = string
   description = "OpenStack flavor used by Proxy Jump instance"
