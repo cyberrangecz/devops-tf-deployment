@@ -99,13 +99,13 @@ variable "kubernetes_token" {
 variable "certs_version" {
   type        = string
   description = "Version of certs helm package"
-  default     = "1.0.0"
+  default     = "1.0.1"
 }
 
 variable "head_version" {
   type        = string
   description = "Version of head helm package"
-  default     = "1.0.0"
+  default     = "2.0.0"
 }
 
 variable "gen_users_version" {
@@ -117,7 +117,7 @@ variable "gen_users_version" {
 variable "postgres_version" {
   type        = string
   description = "Version of postgres helm package"
-  default     = "1.0.0"
+  default     = "2.0.0"
 }
 
 variable "man_flavor" {
