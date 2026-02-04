@@ -16,7 +16,7 @@
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_flavors"></a> [flavors](#module\_flavors) | git::https://github.com/cyberrangecz/tf-module-flavors.git | v1.0.0 |
-| <a name="module_images"></a> [images](#module\_images) | git::https://github.com/cyberrangecz/tf-module-images.git | v1.0.0 |
+| <a name="module_images"></a> [images](#module\_images) | git::https://github.com/cyberrangecz/tf-module-images.git | v1.1.0 |
 | <a name="module_kubernetes_cluster"></a> [kubernetes\_cluster](#module\_kubernetes\_cluster) | git::https://github.com/cyberrangecz/tf-module-kubernetes-cluster.git | v1.1.0 |
 | <a name="module_openstack_base"></a> [openstack\_base](#module\_openstack\_base) | git::https://github.com/cyberrangecz/tf-module-openstack-base.git | v1.1.0 |
 | <a name="module_proxy_jump"></a> [proxy\_jump](#module\_proxy\_jump) | git::https://github.com/cyberrangecz/tf-module-proxy-jump.git | v1.0.0 |
@@ -36,6 +36,7 @@
 | <a name="input_dns_nameservers"></a> [dns\_nameservers](#input\_dns\_nameservers) | List of DNS name servers used for instances | `list(string)` | <pre>[<br/>  "1.1.1.1",<br/>  "1.0.0.1"<br/>]</pre> | no |
 | <a name="input_external_network_name"></a> [external\_network\_name](#input\_external\_network\_name) | External network name used for floating IP allocation | `string` | n/a | yes |
 | <a name="input_import_kali"></a> [import\_kali](#input\_import\_kali) | Import Kali image | `bool` | `true` | no |
+| <a name="input_import_noble_man"></a> [import\_noble\_man](#input\_import\_noble\_man) | Import preinstalled Ubuntu Noble Man image | `bool` | `false` | no |
 | <a name="input_k3s_version"></a> [k3s\_version](#input\_k3s\_version) | Version of k3s distribution | `string` | `"v1.33.1+k3s1"` | no |
 | <a name="input_kubernetes_cluster_flavor_name"></a> [kubernetes\_cluster\_flavor\_name](#input\_kubernetes\_cluster\_flavor\_name) | OpenStack flavor used by kubernetes cluster instance | `string` | n/a | yes |
 | <a name="input_network_cidr"></a> [network\_cidr](#input\_network\_cidr) | CIDR block for the base-subnet | `string` | `"192.168.64.0/18"` | no |

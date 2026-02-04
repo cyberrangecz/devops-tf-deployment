@@ -27,6 +27,12 @@ variable "import_kali" {
   default     = true
 }
 
+variable "import_noble_man" {
+  type        = bool
+  description = "Import preinstalled Ubuntu Noble Man image"
+  default     = false
+}
+
 variable "k3s_version" {
   type        = string
   description = "Version of k3s distribution"

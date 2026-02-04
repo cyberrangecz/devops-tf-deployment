@@ -10,8 +10,9 @@ module "flavors" {
 }
 
 module "images" {
-  source = "git::https://github.com/cyberrangecz/tf-module-images.git?ref=v1.0.0"
-  kali   = var.import_kali
+  source    = "git::https://github.com/cyberrangecz/tf-module-images.git?ref=v1.1.0"
+  kali      = var.import_kali
+  noble_man = var.import_noble_man
 }
 
 module "openstack_base" {
