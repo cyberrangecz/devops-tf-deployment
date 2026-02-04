@@ -39,3 +39,7 @@ The second step is deploying the CyberRangeCZ Platform Helm application to this 
 Follow these guides to deploy CyberRangeCZ Platform:
 1. [Deployment of Cloud base resources](BASE.md)
 2. [Deployment of CyberRangeCZ Platform Helm application](HELM.md)
+
+## Air-gapped deployment
+
+CyberRangeCZ Platform supports air-gapped deployment. Air-gapped deployment still needs the internet access during deployment period, but is able to operate without internet access. To enable this functionality use `-var="import_noble_man=true"` parameter while deploying Cloud base resources and `-var="man_image=ubuntu-noble-man"` parameter while deploying CyberRangeCZ Platform Helm application.
