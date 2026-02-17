@@ -20,8 +20,6 @@ head_version                  = "2.0.0"
 gen_users_version             = "1.0.0"
 postgres_version              = "2.0.0"
 certs_version                 = "1.0.1"
-man_image                     = "ami-0de54c4b3a9f841da" #ubuntu-noble-24.04-amd64-server-20250225
-man_flavor                    = "t3.large"
 openid_configuration_insecure = true
 users = {
   #Example of a user from local Keycloak issuer

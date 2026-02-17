@@ -12,6 +12,9 @@ postgres:
     storageClassName: local-path
 
 sandbox:
+  manImage: ubuntu-noble-x86_64
+  manFlavor: standard.small
+  manUser: ubuntu
   stackNamePrefix: default
   osConsoleType: spice-html5
   dnsNameServers:

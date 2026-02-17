@@ -15,7 +15,6 @@ head_version                  = "2.0.0"
 gen_users_version             = "1.0.0"
 postgres_version              = "2.0.0"
 certs_version                 = "1.0.1"
-man_image                     = "ubuntu-noble-x86_64"
 os_auth_url                   = ""
 openid_configuration_insecure = true
 # smtp_config = {

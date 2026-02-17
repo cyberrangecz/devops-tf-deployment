@@ -12,6 +12,8 @@ postgres:
     storageClassName: gp3
 
 sandbox:
+  manImage: ami-0de54c4b3a9f841da  # ubuntu-noble-24.04-amd64-server-20250225
+  manFlavor: t3.large
   manUser: ubuntu
   stackNamePrefix: default
   osConsoleType: spice-html5

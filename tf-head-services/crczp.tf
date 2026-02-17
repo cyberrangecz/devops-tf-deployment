@@ -4,7 +4,7 @@ resource "random_password" "grafana_secret" {
 }
 
 module "helm" {
-  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.4.0"
+  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.5.0"
   acme_contact                  = var.acme_contact
   application_credential_id     = var.application_credential_id
   application_credential_secret = var.application_credential_secret
@@ -18,13 +18,10 @@ module "helm" {
   head_version                  = var.head_version
   gen_users_version             = var.gen_users_version
   postgres_version              = var.postgres_version
-  man_flavor                    = var.man_flavor
-  man_image                     = var.man_image
   os_auth_url                   = var.os_auth_url
   oidc_providers                = length(var.oidc_providers) > 0 ? var.oidc_providers : local.oidc_providers
   proxy_host                    = local.proxy_host
   proxy_key                     = local.proxy_key
-  sandbox_ansible_timeout       = var.sandbox_ansible_timeout
   self_signed                   = var.self_signed
   tls_private_key               = var.tls_private_key
   tls_public_key                = var.tls_public_key
