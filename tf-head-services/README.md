@@ -7,26 +7,26 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.3 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
-| <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.5.0 |
+| ---- | ------ | ------- |
+| <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.7.1 |
 | <a name="module_monitoring"></a> [monitoring](#module\_monitoring) | git::https://github.com/cyberrangecz/tf-module-monitoring.git | v1.2.1 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [random_password.grafana_secret](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_acme_contact"></a> [acme\_contact](#input\_acme\_contact) | Let's encrypt contact email address | `string` | n/a | yes |
 | <a name="input_application_credential_id"></a> [application\_credential\_id](#input\_application\_credential\_id) | Application credentials ID for accessing OpenStack project (mutually exclusive with aws parameter) | `string` | `""` | no |
 | <a name="input_application_credential_secret"></a> [application\_credential\_secret](#input\_application\_credential\_secret) | Application credentials secret for accessing OpenStack project (mutually exclusive with aws parameter) | `string` | `""` | no |
@@ -57,7 +57,7 @@ No requirements.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_keycloak_password"></a> [keycloak\_password](#output\_keycloak\_password) | Password for Keycloak admin users |
 | <a name="output_monitoring_admin_password"></a> [monitoring\_admin\_password](#output\_monitoring\_admin\_password) | Password for Prometheus and Grafana admin users |
 <!-- END_TF_DOCS -->
