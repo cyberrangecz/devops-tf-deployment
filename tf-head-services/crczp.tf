@@ -44,3 +44,9 @@ module "monitoring" {
   ]
 }
 
+module "netbird" {
+  count                        = var.deploy_netbird ? 1 : 0
+  source                       = "git::https://github.com/cyberrangecz/tf-module-netbird.git?ref=v1.0.0"
+  head_host                    = var.head_host
+  netbird_pat_secret_namespace = "crczp"
+}

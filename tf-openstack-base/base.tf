@@ -16,7 +16,7 @@ module "images" {
 }
 
 module "openstack_base" {
-  source                = "git::https://github.com/cyberrangecz/tf-module-openstack-base.git?ref=v1.1.0"
+  source                = "git::https://github.com/cyberrangecz/tf-module-openstack-base.git?ref=v1.2.0"
   external_network_name = var.external_network_name
   dns_nameservers       = var.dns_nameservers
   network_cidr          = var.network_cidr

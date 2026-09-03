@@ -44,6 +44,12 @@ variable "deploy_head_timeout" {
   default     = 3600
 }
 
+variable "deploy_netbird" {
+  type        = bool
+  description = "Deploy self-hosted NetBird management server via Helm"
+  default     = false
+}
+
 variable "enable_monitoring" {
   type        = bool
   description = "If Prometheus monitoring should be enabled"
@@ -61,6 +67,7 @@ variable "git_config" {
     user                 = string
     ansibleNetworkingUrl = string
     ansibleNetworkingRev = string
+    topologyCacheMode    = optional(string, "AGGRESSIVE")
     }
   )
   description = "Git configuration"
@@ -69,7 +76,7 @@ variable "git_config" {
     providers            = {}
     user                 = "git"
     ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-    ansibleNetworkingRev = "v1.7.0"
+    ansibleNetworkingRev = "v2.2.1"
   }
 }
 
@@ -105,7 +112,7 @@ variable "certs_version" {
 variable "head_version" {
   type        = string
   description = "Version of head helm package"
-  default     = "2.0.0"
+  default     = "3.0.0"
 }
 
 variable "gen_users_version" {

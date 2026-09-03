@@ -16,6 +16,7 @@ No requirements.
 | ---- | ------ | ------- |
 | <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.7.1 |
 | <a name="module_monitoring"></a> [monitoring](#module\_monitoring) | git::https://github.com/cyberrangecz/tf-module-monitoring.git | v1.2.1 |
+| <a name="module_netbird"></a> [netbird](#module\_netbird) | git::https://github.com/cyberrangecz/tf-module-netbird.git | v1.0.0 |
 
 ## Resources
 
@@ -33,12 +34,13 @@ No requirements.
 | <a name="input_aws_config"></a> [aws\_config](#input\_aws\_config) | AWS configuration (mutually exclusive with application\_credential\_id, application\_credential\_secret and os\_auth\_url parameters) | <pre>object({<br/>    accessKeyId      = string<br/>    secretAccessKey  = string<br/>    region           = string<br/>    availabilityZone = string<br/>    baseVpc          = string<br/>    baseSubnet       = string<br/>    }<br/>  )</pre> | <pre>{<br/>  "accessKeyId": "",<br/>  "availabilityZone": "eu-central-1a",<br/>  "baseSubnet": "BaseSubnetA",<br/>  "baseVpc": "BaseNet",<br/>  "region": "eu-central-1",<br/>  "secretAccessKey": ""<br/>}</pre> | no |
 | <a name="input_certs_version"></a> [certs\_version](#input\_certs\_version) | Version of certs helm package | `string` | `"1.0.1"` | no |
 | <a name="input_deploy_head_timeout"></a> [deploy\_head\_timeout](#input\_deploy\_head\_timeout) | Timeout for deploying crczp-head helm package in seconds | `number` | `3600` | no |
+| <a name="input_deploy_netbird"></a> [deploy\_netbird](#input\_deploy\_netbird) | Deploy self-hosted NetBird management server via Helm | `bool` | `false` | no |
 | <a name="input_enable_monitoring"></a> [enable\_monitoring](#input\_enable\_monitoring) | If Prometheus monitoring should be enabled | `bool` | `false` | no |
 | <a name="input_gen_user_count"></a> [gen\_user\_count](#input\_gen\_user\_count) | Number of local users to generate | `number` | n/a | yes |
 | <a name="input_gen_users_version"></a> [gen\_users\_version](#input\_gen\_users\_version) | Version of gen-users helm package | `string` | `"1.0.0"` | no |
-| <a name="input_git_config"></a> [git\_config](#input\_git\_config) | Git configuration | <pre>object({<br/>    providers            = map(string)<br/>    user                 = string<br/>    ansibleNetworkingUrl = string<br/>    ansibleNetworkingRev = string<br/>    }<br/>  )</pre> | <pre>{<br/>  "ansibleNetworkingRev": "v1.7.0",<br/>  "ansibleNetworkingUrl": "https://github.com/cyberrangecz/ansible-stage-one.git",<br/>  "providers": {},<br/>  "user": "git"<br/>}</pre> | no |
+| <a name="input_git_config"></a> [git\_config](#input\_git\_config) | Git configuration | <pre>object({<br/>    providers            = map(string)<br/>    user                 = string<br/>    ansibleNetworkingUrl = string<br/>    ansibleNetworkingRev = string<br/>    topologyCacheMode    = optional(string, "AGGRESSIVE")<br/>    }<br/>  )</pre> | <pre>{<br/>  "ansibleNetworkingRev": "v2.2.1",<br/>  "ansibleNetworkingUrl": "https://github.com/cyberrangecz/ansible-stage-one.git",<br/>  "providers": {},<br/>  "user": "git"<br/>}</pre> | no |
 | <a name="input_head_host"></a> [head\_host](#input\_head\_host) | FQDN/IP address of node/LB, where head services are running | `string` | n/a | yes |
-| <a name="input_head_version"></a> [head\_version](#input\_head\_version) | Version of head helm package | `string` | `"2.0.0"` | no |
+| <a name="input_head_version"></a> [head\_version](#input\_head\_version) | Version of head helm package | `string` | `"3.0.0"` | no |
 | <a name="input_helm_repository"></a> [helm\_repository](#input\_helm\_repository) | Repository with head helm packages | `string` | `"oci://ghcr.io/cyberrangecz/stable"` | no |
 | <a name="input_kubernetes_api_url"></a> [kubernetes\_api\_url](#input\_kubernetes\_api\_url) | Kubernetes API URL | `string` | `""` | no |
 | <a name="input_kubernetes_token"></a> [kubernetes\_token](#input\_kubernetes\_token) | Token for authentication to Kubernetes API (AWS EKS) | `string` | `""` | no |

@@ -1,17 +1,19 @@
 acme_contact                  = ""
 application_credential_id     = ""
 application_credential_secret = ""
+deploy_netbird                = false
 enable_monitoring             = false
 gen_user_count                = "0"
 # git_config = {
 #   providers            = {"https://github.com/": "TOKEN"}
 #   user                 = "git"
 #   ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-#   ansibleNetworkingRev = "v1.7.0"
+#   ansibleNetworkingRev = "v2.2.1"
+#   topologyCacheMode    = "AGGRESSIVE"
 # }
 head_host                     = ""
 kubernetes_api_url            = ""
-head_version                  = "2.0.0"
+head_version                  = "3.0.0"
 gen_users_version             = "1.0.0"
 postgres_version              = "2.0.0"
 certs_version                 = "1.0.1"

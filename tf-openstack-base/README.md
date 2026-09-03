@@ -2,35 +2,35 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 3.1.0 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_flavors"></a> [flavors](#module\_flavors) | git::https://github.com/cyberrangecz/tf-module-flavors.git | v1.0.0 |
 | <a name="module_images"></a> [images](#module\_images) | git::https://github.com/cyberrangecz/tf-module-images.git | v1.1.0 |
 | <a name="module_kubernetes_cluster"></a> [kubernetes\_cluster](#module\_kubernetes\_cluster) | git::https://github.com/cyberrangecz/tf-module-kubernetes-cluster.git | v1.1.0 |
-| <a name="module_openstack_base"></a> [openstack\_base](#module\_openstack\_base) | git::https://github.com/cyberrangecz/tf-module-openstack-base.git | v1.1.0 |
+| <a name="module_openstack_base"></a> [openstack\_base](#module\_openstack\_base) | git::https://github.com/cyberrangecz/tf-module-openstack-base.git | v1.2.0 |
 | <a name="module_proxy_jump"></a> [proxy\_jump](#module\_proxy\_jump) | git::https://github.com/cyberrangecz/tf-module-proxy-jump.git | v1.0.0 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [openstack_images_image_v2.ubuntu](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/data-sources/images_image_v2) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_deploy_flavors"></a> [deploy\_flavors](#input\_deploy\_flavors) | If flavors should be created in OpenStack | `bool` | `false` | no |
 | <a name="input_deploy_kubernetes_cluster"></a> [deploy\_kubernetes\_cluster](#input\_deploy\_kubernetes\_cluster) | If kubernetes cluster for head services should be deployed | `bool` | `true` | no |
 | <a name="input_dns_nameservers"></a> [dns\_nameservers](#input\_dns\_nameservers) | List of DNS name servers used for instances | `list(string)` | <pre>[<br/>  "1.1.1.1",<br/>  "1.0.0.1"<br/>]</pre> | no |
@@ -51,7 +51,7 @@
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_cluster_ip"></a> [cluster\_ip](#output\_cluster\_ip) | Floating IP address of kubernetes cluster instance |
 | <a name="output_kubernetes_client_certificate"></a> [kubernetes\_client\_certificate](#output\_kubernetes\_client\_certificate) | Base64 encoded client certificate for authentication to Kubernetes API |
 | <a name="output_kubernetes_client_key"></a> [kubernetes\_client\_key](#output\_kubernetes\_client\_key) | Base64 encoded client key for authentication to Kubernetes API |
