@@ -50,6 +50,36 @@ variable "deploy_netbird" {
   default     = false
 }
 
+variable "netbird_subdomain" {
+  type        = string
+  description = "Subdomain (prefixed to head_host) where NetBird is served. Defaults to \"netbird\"."
+  default     = "netbird"
+
+  validation {
+    condition     = length(trimspace(var.netbird_subdomain)) > 0
+    error_message = "netbird_subdomain must not be empty."
+  }
+}
+
+variable "netbird_self_signed" {
+  type        = bool
+  description = "Use a self-signed certificate instead of Let's Encrypt for the NetBird FQDN."
+  default     = false
+}
+
+variable "netbird_tls_private_key" {
+  type        = string
+  description = "Base64 encoded custom TLS private key for the NetBird host. If not specified together with netbird_tls_public_key, a certificate is generated."
+  default     = ""
+  sensitive   = true
+}
+
+variable "netbird_tls_public_key" {
+  type        = string
+  description = "Base64 encoded custom TLS public key (certificate) for the NetBird host. If not specified together with netbird_tls_private_key, a certificate is generated."
+  default     = ""
+}
+
 variable "enable_monitoring" {
   type        = bool
   description = "If Prometheus monitoring should be enabled"
