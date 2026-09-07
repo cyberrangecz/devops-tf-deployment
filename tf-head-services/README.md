@@ -62,4 +62,5 @@ No requirements.
 | ---- | ----------- |
 | <a name="output_keycloak_password"></a> [keycloak\_password](#output\_keycloak\_password) | Password for Keycloak admin users |
 | <a name="output_monitoring_admin_password"></a> [monitoring\_admin\_password](#output\_monitoring\_admin\_password) | Password for Prometheus and Grafana admin users |
+| <a name="output_netbird_owner_password"></a> [netbird\_owner\_password](#output\_netbird\_owner\_password) | Password of the first NetBird owner user |
 <!-- END_TF_DOCS -->
