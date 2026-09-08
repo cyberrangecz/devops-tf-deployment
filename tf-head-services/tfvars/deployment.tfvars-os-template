@@ -1,7 +1,7 @@
 acme_contact                  = ""
 application_credential_id     = ""
 application_credential_secret = ""
-deploy_netbird                = false
+# netbird_domain              = "vpn.example.com" # set to deploy NetBird on this FQDN (empty = disabled)
 enable_monitoring             = false
 gen_user_count                = "0"
 # git_config = {

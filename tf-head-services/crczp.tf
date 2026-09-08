@@ -4,8 +4,9 @@ resource "random_password" "grafana_secret" {
 }
 
 module "helm" {
-  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.7.1"
+  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.8.0"
   acme_contact                  = var.acme_contact
+  netbird_client_management_url = var.netbird_domain != "" ? "https://${var.netbird_domain}" : ""
   application_credential_id     = var.application_credential_id
   application_credential_secret = var.application_credential_secret
   aws_config                    = local.aws_config
@@ -45,11 +46,10 @@ module "monitoring" {
 }
 
 module "netbird" {
-  count                        = var.deploy_netbird ? 1 : 0
-  source                       = "git::https://github.com/cyberrangecz/tf-module-netbird.git?ref=v1.1.0"
-  head_host                    = var.head_host
+  count                        = var.netbird_domain != "" ? 1 : 0
+  source                       = "git::https://github.com/cyberrangecz/tf-module-netbird.git?ref=v2.0.0"
+  netbird_domain               = var.netbird_domain
   netbird_pat_secret_namespace = "crczp"
-  netbird_subdomain            = var.netbird_subdomain
   self_signed                  = var.netbird_self_signed
   acme_contact                 = var.acme_contact
   tls_private_key              = var.netbird_tls_private_key

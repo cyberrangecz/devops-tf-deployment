@@ -24,9 +24,8 @@ Required variables for AWS:
 * `aws_config` - map with AWS settings
 
  You can also specify these optional variables:
- * `deploy_netbird` - Deploy VPN integration Netbird. Requires specifying Netbird `sandbox.netbird.clientManagementUrl` in values.yaml (recommended value is https://NETBIRD_SUBDOMAIN.HEAD_HOST, e.g. https://netbird.HEAD_HOST)
- * `netbird_subdomain` - Subdomain (prefixed to **head_host**) where Netbird is served. Defaults to `netbird`, i.e. netbird.HEAD_HOST.
- * `netbird_tls_private_key` & `netbird_tls_public_key` - Base64 encoded custom tls certificate/key for the Netbird host (NETBIRD_SUBDOMAIN.HEAD_HOST). If one of them is not specified, both are generated (self-signed for IP addresses and Let's Encrypt for FQDN). This is separate from the portal's **tls_private_key**/**tls_public_key** because Netbird runs on a different host.
+ * `netbird_domain` - Full FQDN where the VPN integration Netbird is served (e.g. `vpn.example.com`). **Setting this is the on/off switch for Netbird**: a non-empty value deploys Netbird and automatically wires the sandbox integration (`sandbox.netbird.clientManagementUrl` is set to `https://NETBIRD_DOMAIN`); leaving it empty disables Netbird entirely. The domain must resolve publicly to the Traefik load balancer and be reachable on 443/TCP (plus 80/TCP for Let's Encrypt) and 3478/UDP for STUN.
+ * `netbird_tls_private_key` & `netbird_tls_public_key` - Base64 encoded custom tls certificate/key for the Netbird host (**netbird_domain**). If one of them is not specified, both are generated (Let's Encrypt for FQDN, or self-signed when **netbird_self_signed** is true). This is separate from the portal's **tls_private_key**/**tls_public_key** because Netbird runs on a different host.
  * `netbird_self_signed` - Use a self-signed certificate instead of Let's Encrypt for the Netbird FQDN.
  * `enable_monitoring` (OpenStack only) - Adds monitoring component to the deployment
  * `git_config` - Configuration for accessing private repositories

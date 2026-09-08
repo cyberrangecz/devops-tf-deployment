@@ -44,21 +44,10 @@ variable "deploy_head_timeout" {
   default     = 3600
 }
 
-variable "deploy_netbird" {
-  type        = bool
-  description = "Deploy self-hosted NetBird management server via Helm"
-  default     = false
-}
-
-variable "netbird_subdomain" {
+variable "netbird_domain" {
   type        = string
-  description = "Subdomain (prefixed to head_host) where NetBird is served. Defaults to \"netbird\"."
-  default     = "netbird"
-
-  validation {
-    condition     = length(trimspace(var.netbird_subdomain)) > 0
-    error_message = "netbird_subdomain must not be empty."
-  }
+  description = "Full FQDN where self-hosted NetBird is served (e.g. vpn.example.com). Setting this deploys NetBird and enables the sandbox integration; leaving it empty disables NetBird entirely."
+  default     = ""
 }
 
 variable "netbird_self_signed" {

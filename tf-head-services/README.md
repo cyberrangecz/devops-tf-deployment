@@ -14,9 +14,9 @@ No requirements.
 
 | Name | Source | Version |
 | ---- | ------ | ------- |
-| <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.7.1 |
+| <a name="module_helm"></a> [helm](#module\_helm) | git::https://github.com/cyberrangecz/tf-module-helm.git | v1.8.0 |
 | <a name="module_monitoring"></a> [monitoring](#module\_monitoring) | git::https://github.com/cyberrangecz/tf-module-monitoring.git | v1.2.1 |
-| <a name="module_netbird"></a> [netbird](#module\_netbird) | git::https://github.com/cyberrangecz/tf-module-netbird.git | v1.1.0 |
+| <a name="module_netbird"></a> [netbird](#module\_netbird) | git::https://github.com/cyberrangecz/tf-module-netbird.git | v2.0.0 |
 
 ## Resources
 
@@ -34,7 +34,6 @@ No requirements.
 | <a name="input_aws_config"></a> [aws\_config](#input\_aws\_config) | AWS configuration (mutually exclusive with application\_credential\_id, application\_credential\_secret and os\_auth\_url parameters) | <pre>object({<br/>    accessKeyId      = string<br/>    secretAccessKey  = string<br/>    region           = string<br/>    availabilityZone = string<br/>    baseVpc          = string<br/>    baseSubnet       = string<br/>    }<br/>  )</pre> | <pre>{<br/>  "accessKeyId": "",<br/>  "availabilityZone": "eu-central-1a",<br/>  "baseSubnet": "BaseSubnetA",<br/>  "baseVpc": "BaseNet",<br/>  "region": "eu-central-1",<br/>  "secretAccessKey": ""<br/>}</pre> | no |
 | <a name="input_certs_version"></a> [certs\_version](#input\_certs\_version) | Version of certs helm package | `string` | `"1.0.1"` | no |
 | <a name="input_deploy_head_timeout"></a> [deploy\_head\_timeout](#input\_deploy\_head\_timeout) | Timeout for deploying crczp-head helm package in seconds | `number` | `3600` | no |
-| <a name="input_deploy_netbird"></a> [deploy\_netbird](#input\_deploy\_netbird) | Deploy self-hosted NetBird management server via Helm | `bool` | `false` | no |
 | <a name="input_enable_monitoring"></a> [enable\_monitoring](#input\_enable\_monitoring) | If Prometheus monitoring should be enabled | `bool` | `false` | no |
 | <a name="input_gen_user_count"></a> [gen\_user\_count](#input\_gen\_user\_count) | Number of local users to generate | `number` | n/a | yes |
 | <a name="input_gen_users_version"></a> [gen\_users\_version](#input\_gen\_users\_version) | Version of gen-users helm package | `string` | `"1.0.0"` | no |
@@ -44,8 +43,8 @@ No requirements.
 | <a name="input_helm_repository"></a> [helm\_repository](#input\_helm\_repository) | Repository with head helm packages | `string` | `"oci://ghcr.io/cyberrangecz/stable"` | no |
 | <a name="input_kubernetes_api_url"></a> [kubernetes\_api\_url](#input\_kubernetes\_api\_url) | Kubernetes API URL | `string` | `""` | no |
 | <a name="input_kubernetes_token"></a> [kubernetes\_token](#input\_kubernetes\_token) | Token for authentication to Kubernetes API (AWS EKS) | `string` | `""` | no |
+| <a name="input_netbird_domain"></a> [netbird\_domain](#input\_netbird\_domain) | Full FQDN where self-hosted NetBird is served (e.g. vpn.example.com). Setting this deploys NetBird and enables the sandbox integration; leaving it empty disables NetBird entirely. | `string` | `""` | no |
 | <a name="input_netbird_self_signed"></a> [netbird\_self\_signed](#input\_netbird\_self\_signed) | Use a self-signed certificate instead of Let's Encrypt for the NetBird FQDN. | `bool` | `false` | no |
-| <a name="input_netbird_subdomain"></a> [netbird\_subdomain](#input\_netbird\_subdomain) | Subdomain (prefixed to head\_host) where NetBird is served. Defaults to "netbird". | `string` | `"netbird"` | no |
 | <a name="input_netbird_tls_private_key"></a> [netbird\_tls\_private\_key](#input\_netbird\_tls\_private\_key) | Base64 encoded custom TLS private key for the NetBird host. If not specified together with netbird\_tls\_public\_key, a certificate is generated. | `string` | `""` | no |
 | <a name="input_netbird_tls_public_key"></a> [netbird\_tls\_public\_key](#input\_netbird\_tls\_public\_key) | Base64 encoded custom TLS public key (certificate) for the NetBird host. If not specified together with netbird\_tls\_private\_key, a certificate is generated. | `string` | `""` | no |
 | <a name="input_oidc_providers"></a> [oidc\_providers](#input\_oidc\_providers) | List of OIDC providers. Set issuerIdentifier and userInfoUrl to empty string if not used. | <pre>list(object({<br/>    url              = string<br/>    logoutUrl        = string<br/>    clientId         = string<br/>    label            = string<br/>    issuerIdentifier = string<br/>    userInfoUrl      = string<br/>    responseType     = string<br/>    refreshToken     = optional(bool)<br/>    }<br/>  ))</pre> | `[]` | no |
