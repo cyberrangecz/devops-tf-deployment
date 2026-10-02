@@ -17,6 +17,9 @@ https://docs.openstack.org/keystone/yoga/user/application_credentials.html
  and setup **external_network_name** variable:\
  `external_network_name = "openstack_external_network"`
 
+   To use network traffic forwarding, also uncomment and set **hypervisor_cidr** to the narrowest CIDR covering the tunnel source addresses of the compute nodes, which send the mirrored GRE traffic. It creates the **sandbox-mirror-sg** security group (GRE ingress from this CIDR only, no egress) that must exist before `network_forwarding_enabled` is turned on in the sandbox service:\
+ `hypervisor_cidr = "10.99.0.0/16"`
+
 6. Initialize OpenTofu:\
 `tofu init`
 

@@ -21,6 +21,12 @@ variable "external_network_name" {
   description = "External network name used for floating IP allocation"
 }
 
+variable "hypervisor_cidr" {
+  type        = string
+  description = "Narrowest CIDR covering the tunnel source addresses of the compute nodes, which send mirrored GRE traffic. Required for network forwarding; creates the sandbox-mirror-sg security group"
+  default     = null
+}
+
 variable "import_kali" {
   type        = bool
   description = "Import Kali image"
