@@ -14,7 +14,7 @@ gen_user_count    = "0"
 #  providers            = { "https://github.com/" : "TOKEN" }
 #  user                 = "git"
 #  ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-#  ansibleNetworkingRev = "v2.2.1"
+#  ansibleNetworkingRev = "v2.3.0"
 #  topologyCacheMode    = "AGGRESSIVE"
 #}
 head_host                     = ""

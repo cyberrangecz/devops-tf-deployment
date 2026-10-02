@@ -95,7 +95,7 @@ variable "git_config" {
     providers            = {}
     user                 = "git"
     ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-    ansibleNetworkingRev = "v2.2.1"
+    ansibleNetworkingRev = "v2.3.0"
   }
 }
 

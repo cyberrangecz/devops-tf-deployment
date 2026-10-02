@@ -16,7 +16,6 @@ sandbox:
   manFlavor: t3.large
   manUser: ubuntu
   stackNamePrefix: default
-  osConsoleType: spice-html5
   dnsNameServers:
     - 1.1.1.1
     - 1.0.0.1
