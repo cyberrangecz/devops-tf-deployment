@@ -13,11 +13,13 @@ gen_user_count                = "0"
 # }
 head_host                     = ""
 kubernetes_api_url            = ""
-head_version                  = "3.0.0"
+head_version                  = "4.0.0"
 gen_users_version             = "1.0.0"
 postgres_version              = "2.0.0"
 certs_version                 = "1.0.1"
 os_auth_url                   = ""
+# Requires the sandbox-mirror-sg security group and base-router-public created by tf-module-openstack-base >= v1.3.0
+# network_forwarding_enabled    = true
 openid_configuration_insecure = true
 # smtp_config = {
 #   smtp_server           = ""

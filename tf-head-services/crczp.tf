@@ -17,6 +17,7 @@ module "helm" {
   head_version                  = var.head_version
   gen_users_version             = var.gen_users_version
   postgres_version              = var.postgres_version
+  network_forwarding_enabled    = var.network_forwarding_enabled
   oidc_providers                = length(var.oidc_providers) > 0 ? var.oidc_providers : local.oidc_providers
   proxy_host                    = local.proxy_host
   proxy_key                     = local.proxy_key

@@ -128,10 +128,16 @@ variable "certs_version" {
   default     = "1.0.1"
 }
 
+variable "network_forwarding_enabled" {
+  type        = bool
+  description = "Enable network traffic forwarding in the sandbox service (OpenStack requires the sandbox-mirror-sg security group and base-router-public from tf-module-openstack-base)"
+  default     = false
+}
+
 variable "head_version" {
   type        = string
   description = "Version of head helm package"
-  default     = "3.0.0"
+  default     = "4.0.0"
 }
 
 variable "gen_users_version" {
