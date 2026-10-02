@@ -51,6 +51,7 @@ No requirements.
 | <a name="input_oidc_providers"></a> [oidc\_providers](#input\_oidc\_providers) | List of OIDC providers. Set issuerIdentifier and userInfoUrl to empty string if not used. | <pre>list(object({<br/>    url              = string<br/>    logoutUrl        = string<br/>    clientId         = string<br/>    label            = string<br/>    issuerIdentifier = string<br/>    userInfoUrl      = string<br/>    responseType     = string<br/>    refreshToken     = optional(bool)<br/>    }<br/>  ))</pre> | `[]` | no |
 | <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | Ignore invalid tls certificate of local Keycloak | `bool` | `false` | no |
 | <a name="input_os_auth_url"></a> [os\_auth\_url](#input\_os\_auth\_url) | OpenStack authentication URL (mutually exclusive with aws parameter) | `string` | `""` | no |
+| <a name="input_os_console_type"></a> [os\_console\_type](#input\_os\_console\_type) | OpenStack console type (novnc, xvpvnc, spice-html5, rdp-html5, serial, webmks); null keeps the sandbox service default (OpenStack only) | `string` | `null` | no |
 | <a name="input_os_region"></a> [os\_region](#input\_os\_region) | OpenStack region | `string` | `""` | no |
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | Version of postgres helm package | `string` | `"2.0.0"` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `"eu-central-1"` | no |

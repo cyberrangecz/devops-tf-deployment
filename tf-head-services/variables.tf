@@ -158,6 +158,12 @@ variable "os_auth_url" {
   default     = ""
 }
 
+variable "os_console_type" {
+  type        = string
+  description = "OpenStack console type (novnc, xvpvnc, spice-html5, rdp-html5, serial, webmks); null keeps the sandbox service default (OpenStack only)"
+  default     = null
+}
+
 variable "os_region" {
   type        = string
   description = "OpenStack region"

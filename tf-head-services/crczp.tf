@@ -30,6 +30,7 @@ module "helm" {
     authUrl                     = var.os_auth_url
     applicationCredentialId     = var.application_credential_id
     applicationCredentialSecret = var.application_credential_secret
+    consoleType                 = var.os_console_type
   }
 }
 
