@@ -55,6 +55,7 @@ Any configuration can be overriden using values.yaml (values-aws.yaml for AWS de
  * `sandbox.manImage` - OpenStack image or AWS AMI used for man nodes
  * `sandbox.manUser` - Default flavor/AMI user used by man nodes
  * `sandbox.sandboxAnsibleTimeout` - Timeout for sandbox provisioning stage
+ * `sandbox.networkForwardingEnabled` - Enable network traffic forwarding (default `false`). On OpenStack, deploy tf-module-openstack-base v1.3.0 or newer with **hypervisor_cidr** set first (see [BASE.md](BASE.md)). On AWS, the platform user needs the Traffic Mirroring permissions from [tf-aws-base/IAM-EC2.md](tf-aws-base/IAM-EC2.md).
 
 3. Initialize Terraform:\
 `tofu init`
