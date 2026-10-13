@@ -131,7 +131,7 @@ variable "certs_version" {
 variable "head_version" {
   type        = string
   description = "Version of head helm package"
-  default     = "4.0.0"
+  default     = "5.0.0"
 }
 
 variable "gen_users_version" {
