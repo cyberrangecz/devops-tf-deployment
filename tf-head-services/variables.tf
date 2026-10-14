@@ -156,6 +156,11 @@ variable "os_console_type" {
   type        = string
   description = "OpenStack console type (novnc, xvpvnc, spice-html5, rdp-html5, serial, webmks); null keeps the sandbox service default (OpenStack only)"
   default     = null
+
+  validation {
+    condition     = var.os_console_type == null || try(contains(["novnc", "xvpvnc", "spice-html5", "rdp-html5", "serial", "webmks"], var.os_console_type), false)
+    error_message = "os_console_type must be one of novnc, xvpvnc, spice-html5, rdp-html5, serial, webmks."
+  }
 }
 
 variable "os_region" {
