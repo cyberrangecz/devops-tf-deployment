@@ -46,7 +46,7 @@ For public OpenStack cloud deployments or private ones without admin application
 
 # AWS IAM User
 
-For optimal setup, it is recommended to create a dedicated user for CyberRangeCZ Platform. Assign this user two IAM policies: [IAM-EC2.md](IAM-EC2.md) and [IAM.md](IAM.md). Then, generate an Access Key for the user. These credentials will be utilized in the .env file. [IAM-EC2.md](IAM-EC2.md) includes the VPC Traffic Mirroring and snapshot permissions used by network traffic forwarding and volumes in sandboxes.
+For optimal setup, it is recommended to create a dedicated user for CyberRangeCZ Platform. Assign this user two IAM policies: [IAM-EC2.md](tf-aws-base/IAM-EC2.md) and [IAM.md](tf-aws-base/IAM.md). Then, generate an Access Key for the user. These credentials will be utilized in the .env file. [IAM-EC2.md](tf-aws-base/IAM-EC2.md) includes the VPC Traffic Mirroring and snapshot permissions used by network traffic forwarding and volumes in sandboxes.
 
 # Deployment of AWS base resources
 
