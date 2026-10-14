@@ -4,13 +4,14 @@ resource "random_password" "grafana_secret" {
 }
 
 module "helm" {
-  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v2.0.0"
+  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v3.0.0"
   acme_contact                  = var.acme_contact
   netbird_client_management_url = var.netbird_domain != "" ? "https://${var.netbird_domain}" : ""
   aws_config                    = local.aws_config
   deploy_head_timeout           = var.deploy_head_timeout
   gen_user_count                = var.gen_user_count
   git_config                    = var.git_config
+  grafana_client_secret         = random_password.grafana_secret.result
   head_host                     = var.head_host
   helm_repository               = var.helm_repository
   certs_version                 = var.certs_version

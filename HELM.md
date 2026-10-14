@@ -65,6 +65,22 @@ Any configuration can be overriden using values.yaml (values-aws.yaml for AWS de
 
 # Upgrade
 
-When upgrading an existing deployment to the Helm module `v2.0.0` used by this repository, raise `head_version` to `4.0.0` in `deployment.tfvars` together with the module bump. The module rejects older head versions, because older charts ignore the OpenStack settings it passes.
+## Helm module v2.0.0
+
+When upgrading an existing deployment to the Helm module `v2.0.0`, raise `head_version` to `4.0.0` in `deployment.tfvars` together with the module bump. The module rejects older head versions, because older charts ignore the OpenStack settings it passes.
 
 Custom `values.yaml` files must use `sandbox.openstack.{authUrl, applicationCredentialId, applicationCredentialSecret, consoleType}` instead of `sandbox.osAuthUrl`, `sandbox.osApplicationCredentialId`, `sandbox.osApplicationCredentialSecret` and `sandbox.osConsoleType`; the chart fails to render when the old values are set.
+
+## Helm module v3.0.0 (Keycloak 26.8)
+
+The Helm module `v3.0.0` installs Keycloak 26.8.0 through the official Keycloak operator Helm chart and requires `head_version = "5.0.0"` (older head charts configure Keycloak in a way Keycloak 26 rejects). Keycloak is not upgraded in place: redeploy it from scratch. On an existing deployment, uninstall the `head` release and drop the `keycloak` database in PostgreSQL before applying the new version; otherwise the head chart reuses the existing Keycloak 25 database.
+
+The Keycloak operator moves from the `crczp` namespace to `keycloak-system`, and the Hostzero resource operator from `keycloak-operator` to `keycloak-resource-operator`. Terraform replaces both releases. The Hostzero chart keeps its CRDs on uninstall, so point them to the new release namespace before applying, otherwise Helm refuses to install the release into the new namespace:
+
+```bash
+for crd in $(kubectl get crd -o name | grep 'keycloak.hostzero.com$'); do
+  kubectl annotate --overwrite "$crd" meta.helm.sh/release-namespace=keycloak-resource-operator
+done
+```
+
+Delete the empty `keycloak-operator` namespace afterwards, and the `keycloak-initial-admin` Secret in the `crczp` namespace: it is left over from the old chart and still holds the previous admin credentials.
