@@ -17,6 +17,11 @@ https://docs.openstack.org/keystone/yoga/user/application_credentials.html
  and setup **external_network_name** variable:\
  `external_network_name = "openstack_external_network"`
 
+   To use network traffic forwarding, also uncomment and set **hypervisor_cidr** to the narrowest CIDR covering the tunnel source addresses of the compute nodes, which send the mirrored GRE traffic. It creates the **sandbox-mirror-sg** security group (GRE ingress from this CIDR, plus DHCP requests to any address; see the docs' OpenStack requirements for what that allows) that must exist before `sandbox.networkForwardingEnabled` is turned on in the Helm values (see [HELM.md](HELM.md)):\
+ `hypervisor_cidr = "10.99.0.0/16"`
+
+   Network forwarding also uses the external network of the existing **base-router-public** router for the forwarding router of each sandbox. Every sandbox with network forwarding needs 1 router, 2 external IP addresses and 1 extra port of project quota.
+
 6. Initialize OpenTofu:\
 `tofu init`
 
@@ -41,7 +46,7 @@ For public OpenStack cloud deployments or private ones without admin application
 
 # AWS IAM User
 
-For optimal setup, it is recommended to create a dedicated user for CyberRangeCZ Platform. Assign this user two IAM policies: [IAM-EC2.md](IAM-EC2.md) and [IAM.md](IAM.md). Then, generate an Access Key for the user. These credentials will be utilized in the .env file.
+For optimal setup, it is recommended to create a dedicated user for CyberRangeCZ Platform. Assign this user two IAM policies: [IAM-EC2.md](tf-aws-base/IAM-EC2.md) and [IAM.md](tf-aws-base/IAM.md). Then, generate an Access Key for the user. These credentials will be utilized in the .env file. [IAM-EC2.md](tf-aws-base/IAM-EC2.md) includes the VPC Traffic Mirroring and snapshot permissions used by network traffic forwarding and volumes in sandboxes.
 
 # Deployment of AWS base resources
 

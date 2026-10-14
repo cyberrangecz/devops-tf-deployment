@@ -4,11 +4,9 @@ resource "random_password" "grafana_secret" {
 }
 
 module "helm" {
-  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v1.8.0"
+  source                        = "git::https://github.com/cyberrangecz/tf-module-helm.git?ref=v2.0.0"
   acme_contact                  = var.acme_contact
   netbird_client_management_url = var.netbird_domain != "" ? "https://${var.netbird_domain}" : ""
-  application_credential_id     = var.application_credential_id
-  application_credential_secret = var.application_credential_secret
   aws_config                    = local.aws_config
   deploy_head_timeout           = var.deploy_head_timeout
   gen_user_count                = var.gen_user_count
@@ -19,7 +17,6 @@ module "helm" {
   head_version                  = var.head_version
   gen_users_version             = var.gen_users_version
   postgres_version              = var.postgres_version
-  os_auth_url                   = var.os_auth_url
   oidc_providers                = length(var.oidc_providers) > 0 ? var.oidc_providers : local.oidc_providers
   proxy_host                    = local.proxy_host
   proxy_key                     = local.proxy_key
@@ -28,6 +25,12 @@ module "helm" {
   tls_public_key                = var.tls_public_key
   users                         = var.users
   value_files                   = [var.kubernetes_api_url != "" ? "values.yaml" : "values-aws.yaml"]
+  openstack_config = {
+    authUrl                     = var.os_auth_url
+    applicationCredentialId     = var.application_credential_id
+    applicationCredentialSecret = var.application_credential_secret
+    consoleType                 = var.os_console_type
+  }
 }
 
 module "monitoring" {

@@ -42,6 +42,7 @@ Required variables for AWS:
  * `oidc_providers` - list of configurations of OIDC providers used for authentication. When empty, a local Keycloak provider will be utilized.
  * `openid_configuration_insecure` - Ignore invalid tls certificate of local Keycloak. Required if **enable_monitoring** is set to true and tls certificate of CyberRangeCZ Platform portal is not from trusted CA.
  * `prometheus_jobs` - List of custom Prometheus jobs to support custom monitoring targets, e.g., outside of sandbox topology.
+ * `os_console_type` (OpenStack only) - OpenStack console type used for sandbox consoles (`novnc`, `xvpvnc`, `spice-html5`, `rdp-html5`, `serial`, `webmks`). When unset, the sandbox service default is used.
  * `os_region` (OpenStack only) - OpenStack region name. Required if **enable_monitoring** is set to true
  * `smtp_config` - SMTP configuration for Sandbox Service notifications
      * smtp_server - SMTP server FQDN
@@ -54,9 +55,16 @@ Any configuration can be overriden using values.yaml (values-aws.yaml for AWS de
  * `sandbox.manImage` - OpenStack image or AWS AMI used for man nodes
  * `sandbox.manUser` - Default flavor/AMI user used by man nodes
  * `sandbox.sandboxAnsibleTimeout` - Timeout for sandbox provisioning stage
+ * `sandbox.networkForwardingEnabled` - Enable network traffic forwarding (default `false`). On OpenStack, apply [tf-openstack-base](tf-openstack-base) with **hypervisor_cidr** set first (see [BASE.md](BASE.md)). On AWS, the platform user needs the Traffic Mirroring permissions from [tf-aws-base/IAM-EC2.md](tf-aws-base/IAM-EC2.md).
 
 3. Initialize Terraform:\
 `tofu init`
 
 4. Deploy Helm packages:\
    `tofu apply -var-file tfvars/deployment.tfvars`
+
+# Upgrade
+
+When upgrading an existing deployment to the Helm module `v2.0.0` used by this repository, raise `head_version` to `4.0.0` in `deployment.tfvars` together with the module bump. The module rejects older head versions, because older charts ignore the OpenStack settings it passes.
+
+Custom `values.yaml` files must use `sandbox.openstack.{authUrl, applicationCredentialId, applicationCredentialSecret, consoleType}` instead of `sandbox.osAuthUrl`, `sandbox.osApplicationCredentialId`, `sandbox.osApplicationCredentialSecret` and `sandbox.osConsoleType`; the chart fails to render when the old values are set.

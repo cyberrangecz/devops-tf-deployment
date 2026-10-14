@@ -27,7 +27,12 @@
                 "ec2:DescribeInternetGateways",
                 "ec2:DescribeAddresses",
                 "ec2:DescribeVolumes",
-                "ec2:DescribeTags"
+                "ec2:DescribeSnapshots",
+                "ec2:DescribeTags",
+                "ec2:DescribeTrafficMirrorTargets",
+                "ec2:DescribeTrafficMirrorFilters",
+                "ec2:DescribeTrafficMirrorFilterRules",
+                "ec2:DescribeTrafficMirrorSessions"
             ],
             "Resource": "*",
             "Condition": {
@@ -83,7 +88,16 @@
                 "ec2:CreateVolume",
                 "ec2:AttachVolume",
                 "ec2:DeleteVolume",
-                "ec2:CancelSpotInstanceRequests"
+                "ec2:CancelSpotInstanceRequests",
+                "ec2:CreateTrafficMirrorTarget",
+                "ec2:DeleteTrafficMirrorTarget",
+                "ec2:CreateTrafficMirrorFilter",
+                "ec2:DeleteTrafficMirrorFilter",
+                "ec2:ModifyTrafficMirrorFilterNetworkServices",
+                "ec2:CreateTrafficMirrorFilterRule",
+                "ec2:DeleteTrafficMirrorFilterRule",
+                "ec2:CreateTrafficMirrorSession",
+                "ec2:DeleteTrafficMirrorSession"
             ],
             "Resource": "*",
             "Condition": {

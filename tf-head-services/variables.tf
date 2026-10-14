@@ -95,7 +95,7 @@ variable "git_config" {
     providers            = {}
     user                 = "git"
     ansibleNetworkingUrl = "https://github.com/cyberrangecz/ansible-stage-one.git"
-    ansibleNetworkingRev = "v2.2.1"
+    ansibleNetworkingRev = "v2.3.0"
   }
 }
 
@@ -131,7 +131,7 @@ variable "certs_version" {
 variable "head_version" {
   type        = string
   description = "Version of head helm package"
-  default     = "3.0.0"
+  default     = "4.0.0"
 }
 
 variable "gen_users_version" {
@@ -150,6 +150,17 @@ variable "os_auth_url" {
   type        = string
   description = "OpenStack authentication URL (mutually exclusive with aws parameter)"
   default     = ""
+}
+
+variable "os_console_type" {
+  type        = string
+  description = "OpenStack console type (novnc, xvpvnc, spice-html5, rdp-html5, serial, webmks); null keeps the sandbox service default (OpenStack only)"
+  default     = null
+
+  validation {
+    condition     = var.os_console_type == null || try(contains(["novnc", "xvpvnc", "spice-html5", "rdp-html5", "serial", "webmks"], var.os_console_type), false)
+    error_message = "os_console_type must be one of novnc, xvpvnc, spice-html5, rdp-html5, serial, webmks."
+  }
 }
 
 variable "os_region" {

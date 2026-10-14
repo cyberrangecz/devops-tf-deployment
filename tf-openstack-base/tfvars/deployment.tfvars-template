@@ -1,1 +1,2 @@
 external_network_name = ""
+# hypervisor_cidr = "10.99.0.0/16" # tunnel source addresses of the compute nodes, needed for network forwarding
